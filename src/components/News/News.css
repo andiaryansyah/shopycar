@@ -1,0 +1,30 @@
+.card {
+    border-radius: 20px;
+}
+
+.card-left {
+    height: 418px;
+}
+
+.card-right {
+    height: 200px;
+}
+
+.text-link {
+    font-size: 25px;
+    color: #F75623;
+}
+
+#card-news h5.card-text{
+    bottom: 40px;
+}
+
+#card-news p.card-text{
+    bottom: 20px;
+}
+
+@media screen and (max-width:640px){
+    .card-left {
+        height: 200px;
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "products": [
+        {
+            "id": "1",
+            "name": "Shell Helix HX3",
+            "category":"Oli Mobil",
+            "price": "178000",
+            "stok":"12",
+            "detail":["","","",""],
+            "description":"zzzzz"
+        }
+    ]
+}

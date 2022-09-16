@@ -1,0 +1,35 @@
+.img-style {
+   width: 120px;
+}
+
+.nav-custom {
+    padding-left: 10rem;
+}
+
+.cursor-icons {
+    cursor: pointer;
+}
+
+.btns {
+    background: transparent;
+    border: 2px solid #f75623;
+    border-radius: 5px;
+    color: #f75623;
+    padding: 4px 17px;
+    width: 170px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.btns:hover {
+    background: #f75623;
+    color: #fff;
+    transition: 0.2s;
+}
+
+@media screen and (max-width:1040px){
+    .nav-custom {
+        padding-left: 0;
+    }
+}
+
