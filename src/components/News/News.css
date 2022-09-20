@@ -1,26 +1,45 @@
-.card {
-    border-radius: 20px;
+.news .card-left {
+    height: 416px;
 }
 
-.card-left {
-    height: 418px;
-}
-
-.card-right {
+.news .card-right {
     height: 200px;
 }
 
-.text-link {
+.news .text-link {
     font-size: 25px;
     color: #F75623;
 }
 
-#card-news h5.card-text{
-    bottom: 40px;
+.news .text-link:hover {
+    color: blue;
 }
 
-#card-news p.card-text{
+.news #card-news a.card-text1{
+    bottom: 40px;
+    width: 90%;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+.news #card-news a.card-text1:hover{
+    color: blue;
+    text-decoration: underline;
+    transition: 0.2s;
+}
+
+.news #card-news a.card-text2{
     bottom: 20px;
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+}
+
+.news #card-news a.card-text2:hover{
+    color: blue;
+    text-decoration: underline;
+    transition: 0.2s;
 }
 
 @media screen and (max-width:640px){

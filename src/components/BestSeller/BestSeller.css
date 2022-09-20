@@ -1,38 +1,37 @@
-.recent {
+.best-seller {
     padding-top: 5rem;
     padding-bottom: 5rem;
-    background: #F3F3F3;
 }
 
-.recent .text-link {
+.best-seller .text-link {
     font-size: 25px;
     color: #F75623;
 }
 
-.recent .text-link:hover {
+.best-seller .text-link:hover {
     color: blue;
 }
 
-.recent .card-img-top {
+.best-seller .card-img-top {
     padding: 3rem 3rem 0 3rem;
     height: 200px;
 }
 
-.recent .recent-category {
+.best-seller .best-category {
     color: #A4A4A4;
 }
 
-.recent .card {
+.best-seller .card {
     box-shadow: 0px 0px 50px rgba(12, 55, 94, 0.05);
 }
 
-.recent .card .recent-price {
+.best-seller .card .best-price {
     font-weight: 800;
     color: #F75623;
     font-size: 20px;
 }
 
-.recent .card button {
+.best-seller .card button {
     margin-bottom: 30px;
     margin-left: 2.5rem;
     margin-right: 2.5rem;
@@ -46,12 +45,12 @@
     border: 1px solid #F75623;
 }
 
-.recent .card button:hover {
+.best-seller .card button:hover {
    background: white;
    color: #F75623;
    transition: 0.2s;
 }
 
-.recent .card button .btn-text{
+.best-seller .card button .btn-text{
     margin-left: 10px;
 }

@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import logo from "../../assets/HeaderImg/logo.png";
-import { FaSearch, FaShoppingCart, FaUser } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
+import { GoSearch } from "react-icons/go";
+import { CgShoppingCart } from "react-icons/cg";
 
 const Navbar = () => {
+  const [activeMenu, setActiveMenu] = useState();
   return (
     <>
-      <nav class="navbar navbar-expand-lg bg-light py-4 px-md-5">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/">
-            <img class="img-style img-fluid" src={logo} alt="..." />
+      <nav className="navbar navbar-expand-lg bg-light py-4 px-md-5">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="/">
+            <img className="img-style img-fluid" src={logo} alt="..." />
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -20,46 +23,63 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            class="collapse navbar-collapse nav-custom"
+            className="collapse navbar-collapse nav-custom"
             id="navbarSupportedContent"
           >
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active px-lg-4" aria-current="page" href="/">
-                  HOME
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <a
+                  id="beranda"
+                  className={
+                    activeMenu === 'beranda'
+                      ? 'nav-link active px-lg-4'
+                      : 'nav-link px-lg-4'
+                  }
+                  href="/"
+                  onClick={() => {
+                    setActiveMenu('beranda');
+                  }}
+                >
+                  BERANDA
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link px-lg-4" href="/">
-                  ABOUT US
+              <li className="nav-item">
+                <a  id="tentang"
+                  className={
+                    activeMenu === 'tentang'
+                      ? 'nav-link active px-lg-4'
+                      : 'nav-link px-lg-4'
+                  }
+                  href="/products"
+                  onClick={() => {
+                    setActiveMenu('tentang');
+                  }}>
+                  TENTANG KAMI
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link  px-lg-4" href="/">
-                  NEWS
+              <li className="nav-item">
+                <a className="nav-link  px-lg-4" href="/">
+                  BERITA
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link  px-lg-4" href="/">
-                  PRODUCTS
+              <li className="nav-item">
+                <a className="nav-link  px-lg-4" href="/products">
+                  PRODUK
                 </a>
               </li>
             </ul>
-            <div class="d-flex align-items-center">
-              <span class="px-2">
-                <FaSearch class="cursor-icons" size={20} />
+            <div className="d-flex align-items-center">
+              <span className="px-2">
+                <GoSearch className="cursor-icons" size={20} />
               </span>
-              <span class="px-3">
-                <FaShoppingCart class="cursor-icons" size={20} />
+              <span className="px-3">
+                <CgShoppingCart className="cursor-icons" size={25} />
               </span>
-              <button
-                class="btns d-flex align-items-center"
-                type="submit"
-              >
-                <FaUser style={{marginRight:"10px"}}/> Masuk / Daftar
+              <button className="btns d-flex align-items-center" type="submit">
+                <FaUser style={{ marginRight: "10px" }} /> Masuk / Daftar
               </button>
             </div>
           </div>

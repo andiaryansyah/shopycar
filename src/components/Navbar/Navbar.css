@@ -2,8 +2,15 @@
    width: 120px;
 }
 
+.navbar-nav .nav-link.active {
+    color: #f75623 !important;
+}
+
 .nav-custom {
     padding-left: 10rem;
+}
+.nav-custom a {
+    color: black;
 }
 
 .cursor-icons {

@@ -1,0 +1,54 @@
+.footer {
+    background: #F75623;
+    padding-left: 5rem;
+    padding-right: 4rem;
+    padding-top: 3rem;
+}
+
+.footer .img {
+    width: 8rem;
+    margin-bottom: 2rem;
+}
+
+.footer .footer-text {
+    color: white;
+    margin-bottom: 6rem;
+    width: 380px;
+    line-height: 30px;
+}
+
+.footer .copyright {
+    font-size: 13px;
+    color: white;
+}
+
+.footer .footer-menu a {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    margin-bottom: 2.2rem;
+    color: white;
+    text-decoration: none;
+}
+
+.footer .footer-menu a:hover {
+    color: #A4A4A4;
+    transition: 0.2s;
+}
+
+.footer .contact {
+    padding-left: 5rem;
+}
+
+.footer .contact span {
+    padding-right: 20px;
+}
+
+.footer .contact .icon {
+    cursor: pointer;
+}
+
+.footer .contact .icon:hover {
+    color: #A4A4A4;
+    transition: 0.2s;
+}

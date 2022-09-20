@@ -1,0 +1,17 @@
+.brand {
+    margin-bottom: 5rem;
+    margin-top: 8rem;
+}
+
+.brand .brand-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.brand .brand-row .img {
+    width: 271px;
+    padding-left: 25px;
+}

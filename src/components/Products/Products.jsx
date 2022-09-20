@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import "./Products.css"
 import { CgShoppingCart } from "react-icons/cg";
-import "./Recent.css";
-import { getRecentProducts } from "../../store/action";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts, setSearchProduct } from "../../store/action";
+import { useEffect } from "react";
 
-const Recent = () => {
+const Products = () => {
   const dispatch = useDispatch();
-  const { recentProducts } = useSelector((state) => state.products);
+  const { products } = useSelector((state) => state.products);
+  const { searchProduct } = useSelector((state) => state.products);
   // eslint-disable-next-line
-  const [limit, setLimit] = useState(4);
 
   const rupiah = (number) => {
     return new Intl.NumberFormat("id-ID", {
@@ -19,24 +20,22 @@ const Recent = () => {
   };
 
   useEffect(() => {
-    dispatch(getRecentProducts());
-    // eslint-disable-next-line
-  }, []);
+    dispatch(getProducts())
+  // eslint-disable-next-line
+  },[])
+
+useEffect(() => {
+  dispatch(setSearchProduct(products))
+  // eslint-disable-next-line
+},[products])
 
   return (
-    <div className="recent">
-      <div className="container d-flex justify-content-between mb-3">
-        <h2 className="fw-bold"> PRODUK TERBARU</h2>
-        <a className="fw-bold text-link" href="/">
-          Lihat lainnya
-        </a>
-      </div>
+    <>
+      <div className="products">
       <div className="container">
         <div className="row">
-          {recentProducts
-            ? recentProducts
-                .slice(0, limit ? limit : recentProducts.length)
-                .map((product) => (
+          {searchProduct
+            ? searchProduct.map((product) => (
                   <div className="col-md-3" key={product.id}>
                     <div className="card border-0" style={{ width: "16rem" }}>
                       <img
@@ -46,8 +45,8 @@ const Recent = () => {
                       />
                       <div className="card-body text-center">
                         <p className="card-text fw-bold">{product.name}</p>
-                        <p className="recent-category">{product.category}</p>
-                        <p className="recent-price">{rupiah(product.price)}</p>
+                        <p className="product-category">{product.category}</p>
+                        <p className="product-price">{rupiah(product.price)}</p>
                       </div>
                       <button>
                         <CgShoppingCart size={25} />
@@ -59,8 +58,9 @@ const Recent = () => {
             : null}
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 
-export default Recent;
+export default Products;

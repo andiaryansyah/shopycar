@@ -6,13 +6,13 @@ const Header = () => {
   return (
     <>
       <div className=" header">
-        <img class="banner-style" src={HeaderImg} alt="..." />
-      </div>
+        <img className="banner-style" src={HeaderImg} alt="..." />
       <div className="content">
         <p>
         Penyedia Spare Part Mobil Terlengkap dan Terjamin Asli untuk kebutuhan Bisnis Anda
         </p>
         <button>Cek Produk</button>
+      </div>
       </div>
      
     </>

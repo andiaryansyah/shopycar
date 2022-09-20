@@ -1,52 +1,52 @@
 import React from "react";
 import "./News.css";
-import card1 from "../../assets/HeaderImg/card-1.jpg"
-import card2 from "../../assets/HeaderImg/card-2.jpg"
-import card3 from "../../assets/HeaderImg/card-3.jpg"
+import card1 from "../../assets/NewsImg/card-1.png"
+import card2 from "../../assets/NewsImg/card-2.png"
+import card3 from "../../assets/NewsImg/card-3.png"
 
 const News = () => {
   return (
     <>
-      <div className="container">
-        <div className="d-flex justify-content-between mb-3">
-          <h2 className="fw-bold"> NEWS POPULAR</h2>
-          <a className="fw-bold text-link" href="/">Learn More</a>
+      <div className="container news">
+        <div className="d-flex justify-content-between mb-3 pt-5">
+          <h2 className="fw-bold"> BERITA POPULER</h2>
+          <a className="fw-bold text-link" href="/">Lihat Lainnya</a>
         </div>
-        <div className="row">
+        <div className="row m-0">
           <div className="col-md-6">
-            <div class="card text-bg-dark mb-3 border-0" id="card-news">
+            <div className="card text-light mb-3 border-0" id="card-news">
               <img
             src={card1}
-                class="card-img card-left"
+                className="card-img card-left"
                 alt="..."
               />
-              <div class="card-img-overlay">
-                <h5 class="card-text position-absolute">
+              <div className="card-img-overlay">
+                <a href="/" className="card-text1 position-absolute">
                   Apakah Mobil Matic Lebih Boros Dibandingkan Mobil Manual?
-                </h5>
+                </a>
               </div>
             </div>      
           </div>
           <div className="col-md-6">
-            <div class="card text-bg-dark mb-3 border-0" id="card-news">
+            <div className="card text-bg-dark mb-3 border-0" id="card-news">
               <img
                 src={card2}
-                class="card-img card-right"
+                className="card-img card-right"
                 alt="..."
               />
-              <div class="card-img-overlay">
-                <p class="card-text position-absolute">Periksa Kondisi Mobil Sebelum Mudik</p>
+              <div className="card-img-overlay">
+                <a href="/" className="card-text2 position-absolute">Periksa Kondisi Mobil Sebelum Mudik</a>
               </div>
             </div>
 
-            <div class="card text-bg-dark mb-5 border-0" id="card-news">
+            <div className="card text-bg-dark mb-5 border-0" id="card-news">
               <img
                 src={card3}
-                class="card-img card-right"
+                className="card-img card-right"
                 alt="..."
               />
-              <div class="card-img-overlay">
-                <p class="card-text position-absolute">Karakteristik dari Ban AT, MT dan HT</p>
+              <div className="card-img-overlay">
+                <a href="/" className="card-text2 position-absolute">Karakteristik dari Ban AT, MT dan HT</a>
               </div>
             </div>
           </div>
