@@ -1,0 +1,119 @@
+.detail-product {
+    background: #F9F9F9;
+    padding: 5rem 1rem 10rem 1rem;
+}
+
+.detail-product .divider{
+    --bs-breadcrumb-divider: '>';
+}
+
+.detail-product .divider .breadcrumb .breadcrumb-item a.breadcrumb-link{
+    font-weight: bold;
+    color: lightgrey;
+    text-decoration: none;
+}
+
+.detail-product .divider .breadcrumb .breadcrumb-item a.breadcrumb-link:hover{
+    color: #333;
+    text-decoration: underline;
+}
+
+.detail-product .detail-body {
+    background: white;  
+    padding: 5rem 4rem;
+    box-shadow: 0px 70px 70px rgba(12, 55, 94, 0.05);
+}
+
+.detail-product .detail-body .detail-img {
+    width: 400px;
+}
+
+.detail-product .detail-body .category {
+    color: #A4A4A4;
+    line-height: 10px;
+    margin-bottom: 1.4rem;
+}
+
+.detail-product .detail-body .line {
+    border: 1px solid lightgray;
+    margin-bottom: 1.5rem;
+}
+
+.detail-product .detail-body .price {
+    line-height: 0.2rem;
+    font-weight: 800;
+    color: #F75623;
+    font-size: 20px;
+}
+
+.detail-product .detail-body .real {
+    font-weight: 600;
+    color: #A4A4A4;
+    font-size:16px;
+    text-decoration: line-through;
+}
+
+.detail-product .detail-body span.count {
+    background: #f6f6f6;
+    padding: 0.2rem 1rem;
+    margin: 0 0.4rem;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.detail-product .detail-body span.stock {
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+.detail-product .detail-body button {
+    color: #F75623;
+    font-size: 20px;
+    background: #f6f6f6;
+    border: none;
+    padding: 0 0.5rem;
+    text-align: center;
+    background-position: center;
+}
+
+.detail-product .detail-body button:active {
+    background: #F75623;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.detail-product .detail-body button.btn-cart {
+    margin: 30px 0;
+    padding:0.8rem 1rem;
+    background: #F75623;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    font-weight: 600;
+    font-size: 15px;
+    border: 1px solid #F75623;
+    width: 200px;
+}
+
+.detail-product .detail-body button.btn-cart:hover {
+    background: white;
+   color: #F75623;
+   transition: 0.2s;
+}
+
+.detail-product .detail-body .share a {
+    color: #A4A4A4;
+    margin-right: 1rem;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+
+.detail-product .detail-body .share a:hover {
+    color: #333;
+}
+
+.detail-product .detail-body li {
+    color: #A4A4A4;
+}
+

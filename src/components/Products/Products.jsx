@@ -1,9 +1,10 @@
 import React from "react";
-import "./Products.css"
+import "./Products.css";
 import { CgShoppingCart } from "react-icons/cg";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts, setSearchProduct } from "../../store/action";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -20,29 +21,31 @@ const Products = () => {
   };
 
   useEffect(() => {
-    dispatch(getProducts())
-  // eslint-disable-next-line
-  },[])
+    dispatch(getProducts());
+    // eslint-disable-next-line
+  }, []);
 
-useEffect(() => {
-  dispatch(setSearchProduct(products))
-  // eslint-disable-next-line
-},[products])
+  useEffect(() => {
+    dispatch(setSearchProduct(products));
+    // eslint-disable-next-line
+  }, [products]);
 
   return (
     <>
       <div className="products">
-      <div className="container">
-        <div className="row">
-          {searchProduct
-            ? searchProduct.map((product) => (
+        <div className="container">
+          <div className="row">
+            {searchProduct
+              ? searchProduct.map((product) => (
                   <div className="col-md-3" key={product.id}>
                     <div className="card border-0" style={{ width: "16rem" }}>
-                      <img
-                        src={product.image}
-                        className="card-img-top"
-                        alt="..."
-                      />
+                      <Link to={`/detailproduct/${product.id}`}>
+                        <img
+                          src={product.image}
+                          className="card-img-top"
+                          alt="..."
+                        />
+                      </Link>
                       <div className="card-body text-center">
                         <p className="card-text fw-bold">{product.name}</p>
                         <p className="product-category">{product.category}</p>
@@ -55,9 +58,9 @@ useEffect(() => {
                     </div>
                   </div>
                 ))
-            : null}
+              : null}
+          </div>
         </div>
-      </div>
       </div>
     </>
   );

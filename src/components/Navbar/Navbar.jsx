@@ -4,9 +4,11 @@ import logo from "../../assets/HeaderImg/logo.png";
 import { FaUser } from "react-icons/fa";
 import { GoSearch } from "react-icons/go";
 import { CgShoppingCart } from "react-icons/cg";
+import {Link} from "react-router-dom"
 
 const Navbar = () => {
-  const [activeMenu, setActiveMenu] = useState();
+  const [activeMenu, setActiveMenu] = useState("beranda");
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-light py-4 px-md-5">
@@ -31,44 +33,62 @@ const Navbar = () => {
           >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a
+                <Link
                   id="beranda"
                   className={
                     activeMenu === 'beranda'
                       ? 'nav-link active px-lg-4'
                       : 'nav-link px-lg-4'
                   }
-                  href="/"
+                  to="/"
                   onClick={() => {
                     setActiveMenu('beranda');
                   }}
                 >
                   BERANDA
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a  id="tentang"
+                <Link  id="tentang"
                   className={
                     activeMenu === 'tentang'
                       ? 'nav-link active px-lg-4'
                       : 'nav-link px-lg-4'
                   }
-                  href="/products"
+                  to="/products"
                   onClick={() => {
                     setActiveMenu('tentang');
                   }}>
                   TENTANG KAMI
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link  px-lg-4" href="/">
+              <Link  id="berita"
+                  className={
+                    activeMenu === 'berita'
+                      ? 'nav-link active px-lg-4'
+                      : 'nav-link px-lg-4'
+                  }
+                  to="/products"
+                  onClick={() => {
+                    setActiveMenu('berita');
+                  }}>
                   BERITA
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link  px-lg-4" href="/products">
-                  PRODUK
-                </a>
+              <Link  id="products"
+                  className={
+                    activeMenu === 'products'
+                      ? 'nav-link active px-lg-4'
+                      : 'nav-link px-lg-4'
+                  }
+                  to="/products"
+                  onClick={() => {
+                    setActiveMenu('products');
+                  }}>
+                  PRODUCTS
+                </Link>
               </li>
             </ul>
             <div className="d-flex align-items-center">

@@ -7,8 +7,8 @@
             "price": 161000,
             "stok":"12",
             "sell":10,
-            "detail":"",
-            "description":"zzzzz",
+            "detail":["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet"],
+            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
             "image":"https://tse1.mm.bing.net/th?id=OIP.yiGCjMeGYPe260koLgPepwHaHa&pid=Api&P=0"
         },
         {
@@ -18,8 +18,8 @@
             "price": 354000,
             "stok":"12",
             "sell":7,
-            "detail":"",
-            "description":"zzzzz",
+            "detail":["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet"],
+            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
             "image":"https://tse4.mm.bing.net/th?id=OIP.3nHRM3_hBryyzaiqMilEHwHaHa&pid=Api&P=0"
         },
         {
@@ -29,8 +29,8 @@
             "price": 250000,
             "stok":"12",
             "sell":8,
-            "detail":"",
-            "description":"zzzzz",
+            "detail":["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet"],
+            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
             "image":"https://s2.bukalapak.com/img/7285439161/w-300/Brake_Pad_Kampas_Rem_Depan_Toyota_INNOVA_2004_2015.jpg"
         },
         {
@@ -40,8 +40,8 @@
             "price": 275000,
             "stok":"12",
             "sell":13,
-            "detail":"",
-            "description":"zzzzz",
+            "detail":["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet"],
+            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
             "image":"https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/114/MTA-8965896/bosch_aki_mobil_bosch_mf_55d23l_-60_ah-_full01_e4lpexmo.jpg"
         },
         {
@@ -51,8 +51,8 @@
             "price": 850000,
             "stok":"12",
             "sell":5,
-            "detail":"",
-            "description":"zzzzz",
+            "detail":["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet"],
+            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
             "image":"https://tse2.mm.bing.net/th?id=OIP.ePZjf_HgZnWuiRCLmRSwdgHaHK&pid=Api&P=0"
         },
         {
@@ -62,8 +62,8 @@
             "price": 1200000,
             "stok":"12",
             "sell":3,
-            "detail":"",
-            "description":"zzzzz",
+            "detail":["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet"],
+            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
             "image":"https://tse4.mm.bing.net/th?id=OIP.bv8ZCig979X9vS2oii9GigHaIF&pid=Api&P=0"
         },
         {
@@ -73,8 +73,8 @@
             "price": 960000,
             "stok":"12",
             "sell":4,
-            "detail":"",
-            "description":"zzzzz",
+            "detail":["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet"],
+            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
             "image":"https://kiosban.com/wp-content/uploads/2017/10/37a3fb3ddf6316ca68ff8d1bef5d8344.png"
         },
         {
@@ -84,8 +84,8 @@
             "price": 178000,
             "stok":"12",
             "sell":5,
-            "detail":"",
-            "description":"zzzzz",
+            "detail":["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet"],
+            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
             "image":"https://tse1.mm.bing.net/th?id=OIP.iL3bEFB3e98-T6IrwEgJZAHaHa&pid=Api&P=0"
         }
     ]

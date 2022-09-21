@@ -49,10 +49,11 @@ const Search = () => {
               <select
                 className="form-select form-select-md count"
                 aria-label=".form-select-md example"
+                defaultValue="8"
                 onChange={handleLimit}
               >
                 <option value="4">4</option>
-                <option selected value="8">
+                <option value="8" >
                   8
                 </option>
                 <option value="12">12</option>
@@ -63,8 +64,9 @@ const Search = () => {
               <select
                 className="form-select form-select-md sortby"
                 aria-label=".form-select-lg example"
+                defaultValue="default"
               >
-                <option selected value="default">
+                <option value="default">
                   Default
                 </option>
                 <option value="high">High Price</option>

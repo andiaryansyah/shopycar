@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {CgShoppingCart } from "react-icons/cg";
+import { CgShoppingCart } from "react-icons/cg";
+import { Link } from "react-router-dom";
 
 import "./BestSeller.css";
 import { getBestSeller } from "../../store/action";
@@ -17,12 +18,12 @@ const BestSeller = () => {
       currency: "IDR",
       minimumFractionDigits: 0,
     }).format(number);
-  }
+  };
 
-useEffect(() => {
-  dispatch(getBestSeller())
-  // eslint-disable-next-line
-},[])
+  useEffect(() => {
+    dispatch(getBestSeller());
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div className="best-seller">
@@ -34,23 +35,34 @@ useEffect(() => {
       </div>
       <div className="container">
         <div className="row">
-      {bestSeller
-        ? bestSeller.slice(0, limit ? limit : bestSeller.length).map((product) => (
-          <div className="col-md-3" key={product.id}>
-            <div className="card border-0" style={{ width: "16rem" }} >
-              <img src={product.image} className="card-img-top" alt="..." />
-              <div className="card-body text-center">
-                <p className="card-text fw-bold">{product.name}</p>
-                <p className="best-category">{product.category}</p>
-                <p className="best-price">{rupiah(product.price)}</p>
-              </div>
-              <button><CgShoppingCart size={25}/><span className="btn-text">Add to Cart</span></button>
-            </div>
-            </div>
-          ))
-          : null}
-          </div>
-          </div>
+          {bestSeller
+            ? bestSeller
+                .slice(0, limit ? limit : bestSeller.length)
+                .map((product) => (
+                  <div className="col-md-3" key={product.id}>
+                    <div className="card border-0" style={{ width: "16rem" }}>
+                      <Link to="/">
+                        <img
+                          src={product.image}
+                          className="card-img-top"
+                          alt="..."
+                        />
+                      </Link>
+                      <div className="card-body text-center">
+                        <p className="card-text fw-bold">{product.name}</p>
+                        <p className="best-category">{product.category}</p>
+                        <p className="best-price">{rupiah(product.price)}</p>
+                      </div>
+                      <button>
+                        <CgShoppingCart size={25} />
+                        <span className="btn-text">Add to Cart</span>
+                      </button>
+                    </div>
+                  </div>
+                ))
+            : null}
+        </div>
+      </div>
     </div>
   );
 };

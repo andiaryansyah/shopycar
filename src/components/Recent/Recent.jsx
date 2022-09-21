@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { CgShoppingCart } from "react-icons/cg";
 import "./Recent.css";
 import { getRecentProducts } from "../../store/action";
+import { Link } from "react-router-dom";
 
 const Recent = () => {
   const dispatch = useDispatch();
@@ -39,11 +40,13 @@ const Recent = () => {
                 .map((product) => (
                   <div className="col-md-3" key={product.id}>
                     <div className="card border-0" style={{ width: "16rem" }}>
-                      <img
-                        src={product.image}
-                        className="card-img-top"
-                        alt="..."
-                      />
+                      <Link to="/">
+                        <img
+                          src={product.image}
+                          className="card-img-top"
+                          alt="..."
+                        />
+                      </Link>
                       <div className="card-body text-center">
                         <p className="card-text fw-bold">{product.name}</p>
                         <p className="recent-category">{product.category}</p>

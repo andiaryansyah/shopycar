@@ -3,6 +3,7 @@ const initialState = {
   bestSeller:[],
   recentProducts:[],
   searchProduct:[],
+  detailProduct:[],
   loading: false,
 };
 
@@ -17,6 +18,8 @@ export default function reducers(state = initialState, action) {
       return { ...state, recentProducts: payload };
       case "PRODUCTS/SEARCHPRODUCT":
       return { ...state, searchProduct: payload };
+      case "PRODUCTS/DETAILPRODUCT":
+        return { ...state, detailProduct: payload };
       case "PRODUCTS/LOADING":
       return { ...state, loading: payload };
     default:
