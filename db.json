@@ -1,92 +1,191 @@
 {
-    "products": [
-        {
-            "id": 1,
-            "name": "Pertamina Prima XP",
-            "category":"Oli",
-            "price": 161000,
-            "stok":"12",
-            "sell":10,
-            "detail":["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet"],
-            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
-            "image":"https://tse1.mm.bing.net/th?id=OIP.yiGCjMeGYPe260koLgPepwHaHa&pid=Api&P=0"
-        },
-        {
-            "id": 2,
-            "name": "Wiper BOSCH",
-            "category":"Oli",
-            "price": 354000,
-            "stok":"12",
-            "sell":7,
-            "detail":["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet"],
-            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
-            "image":"https://tse4.mm.bing.net/th?id=OIP.3nHRM3_hBryyzaiqMilEHwHaHa&pid=Api&P=0"
-        },
-        {
-            "id": 3,
-            "name": "Kampas Rem Brembo",
-            "category":"Kampas",
-            "price": 250000,
-            "stok":"12",
-            "sell":8,
-            "detail":["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet"],
-            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
-            "image":"https://s2.bukalapak.com/img/7285439161/w-300/Brake_Pad_Kampas_Rem_Depan_Toyota_INNOVA_2004_2015.jpg"
-        },
-        {
-            "id": 4,
-            "name": "BOSCH Aki Mobil",
-            "category":"Aki",
-            "price": 275000,
-            "stok":"12",
-            "sell":13,
-            "detail":["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet"],
-            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
-            "image":"https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/114/MTA-8965896/bosch_aki_mobil_bosch_mf_55d23l_-60_ah-_full01_e4lpexmo.jpg"
-        },
-        {
-            "id": 5,
-            "name": "Kicker Audio Set",
-            "category":"Audio",
-            "price": 850000,
-            "stok":"12",
-            "sell":5,
-            "detail":["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet"],
-            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
-            "image":"https://tse2.mm.bing.net/th?id=OIP.ePZjf_HgZnWuiRCLmRSwdgHaHK&pid=Api&P=0"
-        },
-        {
-            "id": 6,
-            "name": "Cinturato P1 Pirelli",
-            "category":"Ban",
-            "price": 1200000,
-            "stok":"12",
-            "sell":3,
-            "detail":["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet"],
-            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
-            "image":"https://tse4.mm.bing.net/th?id=OIP.bv8ZCig979X9vS2oii9GigHaIF&pid=Api&P=0"
-        },
-        {
-            "id": 7,
-            "name": "Aki GS Hybrid",
-            "category":"Aki",
-            "price": 960000,
-            "stok":"12",
-            "sell":4,
-            "detail":["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet"],
-            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
-            "image":"https://kiosban.com/wp-content/uploads/2017/10/37a3fb3ddf6316ca68ff8d1bef5d8344.png"
-        },
-        {
-            "id": 8,
-            "name": "Shell Helix HX3",
-            "category":"Oli",
-            "price": 178000,
-            "stok":"12",
-            "sell":5,
-            "detail":["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet"],
-            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
-            "image":"https://tse1.mm.bing.net/th?id=OIP.iL3bEFB3e98-T6IrwEgJZAHaHa&pid=Api&P=0"
-        }
-    ]
+  "products": [
+    {
+      "id": 1,
+      "name": "Pertamina Prima XP",
+      "category": "Oli",
+      "price": 197000,
+      "disc_price": 0.15,
+      "stock": 12,
+      "sell": 10,
+      "detail": [
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet"
+      ],
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
+      "image": "https://tse1.mm.bing.net/th?id=OIP.yiGCjMeGYPe260koLgPepwHaHa&pid=Api&P=0"
+    },
+    {
+      "id": 2,
+      "name": "Wiper BOSCH",
+      "category": "Oli",
+      "price": 354000,
+      "disc_price": 0,
+      "stock": 7,
+      "sell": 7,
+      "detail": [
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet"
+      ],
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
+      "image": "https://tse4.mm.bing.net/th?id=OIP.3nHRM3_hBryyzaiqMilEHwHaHa&pid=Api&P=0"
+    },
+    {
+      "id": 3,
+      "name": "Kampas Rem Brembo",
+      "category": "Kampas",
+      "price": 250000,
+      "disc_price": 0,
+      "stock": 9,
+      "sell": 8,
+      "detail": [
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet"
+      ],
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
+      "image": "https://s2.bukalapak.com/img/7285439161/w-300/Brake_Pad_Kampas_Rem_Depan_Toyota_INNOVA_2004_2015.jpg"
+    },
+    {
+      "id": 4,
+      "name": "BOSCH Aki Mobil",
+      "category": "Aki",
+      "price": 275000,
+      "disc_price": 0,
+      "stock": 3,
+      "sell": 13,
+      "detail": [
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet"
+      ],
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
+      "image": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/114/MTA-8965896/bosch_aki_mobil_bosch_mf_55d23l_-60_ah-_full01_e4lpexmo.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Kicker Audio Set",
+      "category": "Audio",
+      "price": 850000,
+      "disc_price": 0,
+      "stock": 6,
+      "sell": 5,
+      "detail": [
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet"
+      ],
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
+      "image": "https://tse2.mm.bing.net/th?id=OIP.ePZjf_HgZnWuiRCLmRSwdgHaHK&pid=Api&P=0"
+    },
+    {
+      "id": 6,
+      "name": "Cinturato P1 Pirelli",
+      "category": "Ban",
+      "price": 1200000,
+      "disc_price": 0,
+      "stock": 6,
+      "sell": 3,
+      "detail": [
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet"
+      ],
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
+      "image": "https://tse4.mm.bing.net/th?id=OIP.bv8ZCig979X9vS2oii9GigHaIF&pid=Api&P=0"
+    },
+    {
+      "id": 7,
+      "name": "Aki GS Hybrid",
+      "category": "Aki",
+      "price": 960000,
+      "disc_price": 0,
+      "stock": 2,
+      "sell": 4,
+      "detail": [
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet"
+      ],
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
+      "image": "https://kiosban.com/wp-content/uploads/2017/10/37a3fb3ddf6316ca68ff8d1bef5d8344.png"
+    },
+    {
+      "id": 8,
+      "name": "Shell Helix HX3",
+      "category": "Oli",
+      "price": 178000,
+      "disc_price": 0,
+      "stock": 12,
+      "sell": 5,
+      "detail": [
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet"
+      ],
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
+      "image": "https://tse1.mm.bing.net/th?id=OIP.iL3bEFB3e98-T6IrwEgJZAHaHa&pid=Api&P=0"
+    },
+    {
+      "id": 9,
+      "name": "GT Champiro GTX",
+      "category": "Ban",
+      "price": 208000,
+      "disc_price": 0.1,
+      "stock": 12,
+      "sell": 5,
+      "detail": [
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet"
+      ],
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam facilis consectetur perferendis at voluptatem aliquid amet beatae, in, ipsa numquam quisquam quaerat asperiores voluptas dicta, perspiciatis expedita necessitatibus? Eum,eaque.",
+      "image": "https://storage.googleapis.com/finansialku_media/wordpress_media/2018/01/Cara-Memilih-Ban-Mobil-00-Finansialku.jpg"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin",
+      "email": "admin@gmail.com"
+    }
+  ],
+  "carts": [
+    {
+      "userId": 1,
+      "productId": 1,
+      "qty": 4,
+      "price": 197000,
+      "disc_price": 0.15,
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "productId": 2,
+      "qty": 1,
+      "price": 354000,
+      "disc_price": 0,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "productId": 3,
+      "qty": 2,
+      "price": 250000,
+      "disc_price": 0,
+      "id": 7
+    }
+  ]
 }

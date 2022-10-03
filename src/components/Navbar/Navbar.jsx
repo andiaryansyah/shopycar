@@ -5,9 +5,23 @@ import { FaUser } from "react-icons/fa";
 import { GoSearch } from "react-icons/go";
 import { CgShoppingCart } from "react-icons/cg";
 import {Link} from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux";
+import { getCartItems } from "../../store/ProductAction";
+import { useEffect } from "react";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const { cartItems } = useSelector((state) => state.products)
   const [activeMenu, setActiveMenu] = useState("beranda");
+  
+useEffect(() => {
+  dispatch(getCartItems());
+    // eslint-disable-next-line
+},[])
+
+useEffect(() => {
+    // eslint-disable-next-line
+},[cartItems])
 
   return (
     <>
@@ -37,8 +51,8 @@ const Navbar = () => {
                   id="beranda"
                   className={
                     activeMenu === 'beranda'
-                      ? 'nav-link active px-lg-4'
-                      : 'nav-link px-lg-4'
+                      ? 'nav-link active px-lg-3'
+                      : 'nav-link px-lg-3'
                   }
                   to="/"
                   onClick={() => {
@@ -52,8 +66,8 @@ const Navbar = () => {
                 <Link  id="tentang"
                   className={
                     activeMenu === 'tentang'
-                      ? 'nav-link active px-lg-4'
-                      : 'nav-link px-lg-4'
+                      ? 'nav-link active px-lg-3'
+                      : 'nav-link px-lg-3'
                   }
                   to="/products"
                   onClick={() => {
@@ -66,8 +80,8 @@ const Navbar = () => {
               <Link  id="berita"
                   className={
                     activeMenu === 'berita'
-                      ? 'nav-link active px-lg-4'
-                      : 'nav-link px-lg-4'
+                      ? 'nav-link active px-lg-3'
+                      : 'nav-link px-lg-3'
                   }
                   to="/products"
                   onClick={() => {
@@ -80,23 +94,26 @@ const Navbar = () => {
               <Link  id="products"
                   className={
                     activeMenu === 'products'
-                      ? 'nav-link active px-lg-4'
-                      : 'nav-link px-lg-4'
+                      ? 'nav-link active px-lg-3'
+                      : 'nav-link px-lg-3'
                   }
                   to="/products"
                   onClick={() => {
                     setActiveMenu('products');
                   }}>
-                  PRODUCTS
+                  PRODUK
                 </Link>
               </li>
             </ul>
             <div className="d-flex align-items-center">
-              <span className="px-2">
+              {/* <span className="px-2">
                 <GoSearch className="cursor-icons" size={20} />
-              </span>
+              </span> */}
               <span className="px-3">
-                <CgShoppingCart className="cursor-icons" size={25} />
+                <Link to="/cart">
+                { cartItems.length === 0 ? <span className="cart-count">0</span> : <span className="cart-count">{cartItems.length}</span>}
+                    <CgShoppingCart className="cursor-icons" size={25} />
+                </Link>
               </span>
               <button className="btns d-flex align-items-center" type="submit">
                 <FaUser style={{ marginRight: "10px" }} /> Masuk / Daftar

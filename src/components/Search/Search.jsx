@@ -1,29 +1,36 @@
 import React, { useState, useEffect } from "react";
 import "./Search.css";
 import { GoSearch } from "react-icons/go";
-import { useDispatch } from "react-redux";
-import { getSearchProduct, getProducts } from "../../store/action";
+import { useDispatch, useSelector } from "react-redux";
+import { getSearchProduct, getProducts, setLimitProduct } from "../../store/ProductAction";
 
 const Search = () => {
   const dispatch = useDispatch();
+  const {pages} = useSelector((state) => state.products);
+  const {limit} = useSelector((state) => state.products);
   const [keyword, setKeyword] = useState("");
   // eslint-disable-next-line
-  const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState("");
-  
+  // const [page, setPage] = useState(0);
+  // const [limit, setLimit] = useState(8);
+
   const handleLimit = (e) => {
     const number = e.target.value;
-    setLimit(number);
+    dispatch(setLimitProduct(number));
   };
+
+  useEffect(() => {
+    dispatch(getProducts(pages, limit));
+    // eslint-disable-next-line
+  },[])
 
   useEffect(() => {
     if(keyword) {
       dispatch(getSearchProduct(keyword))
     } else {
-      dispatch(getProducts(page, limit));
+      dispatch(getProducts(pages, limit));
     }
     // eslint-disable-next-line
-  }, [page, limit, keyword]);
+  }, [pages, limit, keyword]);
 
 
 
@@ -40,7 +47,7 @@ const Search = () => {
               <input
                 className="input-produk"
                 type="text"
-                placeholder="Masukkan nama produk / merk / brand"
+                placeholder="Masukkan nama produk"
                 onChange={(e) => setKeyword(e.target.value)}
               />
             </div>
@@ -53,7 +60,7 @@ const Search = () => {
                 onChange={handleLimit}
               >
                 <option value="4">4</option>
-                <option value="8" >
+                <option selected value="8" >
                   8
                 </option>
                 <option value="12">12</option>

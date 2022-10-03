@@ -16,6 +16,7 @@
 .recent .card-img-top {
     padding: 3rem 3rem 0 3rem;
     height: 200px;
+    width: auto;
 }
 
 .recent .recent-category {
@@ -30,6 +31,14 @@
     font-weight: 800;
     color: #F75623;
     font-size: 20px;
+}
+
+.recent .card .recent-real {
+    font-weight: 600;
+    color: #A4A4A4;
+    font-size:16px;
+    text-decoration: line-through;
+    line-height: 0;
 }
 
 .recent .card button {
@@ -54,4 +63,17 @@
 
 .recent .card button .btn-text{
     margin-left: 10px;
+}
+
+.recent .card .disc-mark {
+    position: absolute;
+    display: flex;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #FF2828;
+    color: #fff;
+    font-weight: 600;
+    top: 30px;
+    left: 61%;
 }

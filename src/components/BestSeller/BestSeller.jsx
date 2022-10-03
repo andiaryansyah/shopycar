@@ -4,7 +4,7 @@ import { CgShoppingCart } from "react-icons/cg";
 import { Link } from "react-router-dom";
 
 import "./BestSeller.css";
-import { getBestSeller } from "../../store/action";
+import { getBestSeller } from "../../store/ProductAction";
 
 const BestSeller = () => {
   const dispatch = useDispatch();
@@ -12,13 +12,30 @@ const BestSeller = () => {
   // eslint-disable-next-line
   const [limit, setLimit] = useState(4);
 
-  const rupiah = (number) => {
+  const BeforeDiscount = (number) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
       minimumFractionDigits: 0,
     }).format(number);
   };
+
+  const afterDiscount = (a,b) => {
+    const price = a;
+    const disc = b;
+    const tempPrice = price * disc;
+    const result = price - tempPrice;
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+    }).format(result);
+  };
+
+  const discountMark = (discPrice) => {
+    const percentage = discPrice * 100;
+    return percentage;
+  }
 
   useEffect(() => {
     dispatch(getBestSeller());
@@ -29,7 +46,7 @@ const BestSeller = () => {
     <div className="best-seller">
       <div className="container d-flex justify-content-between mb-3">
         <h2 className="fw-bold"> PRODUK TERLARIS</h2>
-        <a className="fw-bold text-link" href="/">
+        <a className="fw-bold text-link" href="/products">
           Lihat lainnya
         </a>
       </div>
@@ -41,22 +58,31 @@ const BestSeller = () => {
                 .map((product) => (
                   <div className="col-md-3" key={product.id}>
                     <div className="card border-0" style={{ width: "16rem" }}>
-                      <Link to="/">
+                    {product.disc_price !== 0 ? 
+                      <div className="disc-mark">
+                        <p className="text-center text-wrap m-auto">{discountMark(product.disc_price)}% OFF</p>
+                      </div> : null}
+                      <Link to={`/detailproduct/${product.id}`} className="m-auto">
                         <img
                           src={product.image}
-                          className="card-img-top"
+                          className="card-img-top img-fluid"
                           alt="..."
                         />
                       </Link>
                       <div className="card-body text-center">
                         <p className="card-text fw-bold">{product.name}</p>
                         <p className="best-category">{product.category}</p>
-                        <p className="best-price">{rupiah(product.price)}</p>
+                        <p className="best-price">{afterDiscount(product.price, product.disc_price)}</p>
+                        <p className="best-real">
+                          {product.disc_price !== 0
+                            ? BeforeDiscount(product.price)
+                            : <br/> }
+                        </p>
                       </div>
-                      <button>
+                      {/* <button>
                         <CgShoppingCart size={25} />
                         <span className="btn-text">Add to Cart</span>
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 ))

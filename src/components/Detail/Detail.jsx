@@ -1,18 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getDetailProduct } from "../../store/action";
+import { getDetailProduct, addCart, getCartItems, getUpdateCart } from "../../store/ProductAction";
 import { CgShoppingCart } from "react-icons/cg";
-import {BiChat} from "react-icons/bi"
-import {BsShare} from "react-icons/bs"
+import { BiChat } from "react-icons/bi";
+import { BsShare } from "react-icons/bs";
 import "./Detail.css";
 
 const Detail = () => {
   const dispatch = useDispatch();
-  const { detailProduct } = useSelector((state) => state.products);
+  const [counter, setCounter] = useState(1);
+  // eslint-disable-next-line
+  const [ userId , setUserId ] = useState(1);
+  const { detailProduct, cartItems } = useSelector((state) => state.products);
   const { id } = useParams();
 
-  const diskon = (number) => {
+  const BeforeDiscount = (number) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
@@ -20,20 +23,50 @@ const Detail = () => {
     }).format(number);
   };
 
-  const real = () => {
+  const afterDiscount = () => {
     const price = detailProduct.price;
-    const disc = price * 0.18 ;
-    const result = price + disc;
+    const disc = detailProduct.disc_price;
+    const tempPrice = price * disc;
+    const result = price - tempPrice;
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
       minimumFractionDigits: 0,
     }).format(result);
+  };
+
+  const discountMark = (discPrice) => {
+    const percentage = discPrice * 100;
+    return percentage;
+  };
+
+  const incrementCounter = () => setCounter(counter + 1);
+  let decrementCounter = () => setCounter(counter - 1);
+
+  const onAdd = (product_id, price, disc_price) => {
+    const tempCart = cartItems.find((cart) => 
+        product_id === cart.productId)
+
+    const cartId = tempCart.id
+
+    if (tempCart === null) {
+      dispatch(addCart(userId, product_id, counter, price, disc_price));
+    } else {
+      let newQty = tempCart.qty + counter
+      if(newQty > tempCart.product.stock) {
+         alert("Stok melebihi batas") 
+      }
+        else {
+          dispatch(getUpdateCart(cartId, userId, product_id, newQty, price, disc_price))
+        }
+    }
+
+    dispatch(getCartItems());
   }
 
   useEffect(() => {
     dispatch(getDetailProduct(id));
-      // eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -56,12 +89,23 @@ const Detail = () => {
         </nav>
         <div className="detail-body">
           <div className="row">
-            <div className="col-md-6">
-              <img src={detailProduct.image} className="img-fluid detail-img" alt="..." />
-              <h5 className="fw-bold">Deskripsi</h5>
-              <p>
-                {detailProduct.description}
-              </p>
+            <div className="col-md-6 d-grid m-auto">
+              <div className="m-auto">
+                {detailProduct.disc_price !== 0 ? (
+                  <div className="disc-mark">
+                    <p className="text-center text-wrap m-auto">
+                      {discountMark(detailProduct.disc_price)}% OFF
+                    </p>
+                  </div>
+                ) : null}
+                  <img
+                    src={detailProduct.image}
+                    className="img-fluid detail-img"
+                    alt="..."
+                  />
+              </div>
+              <h5 className="fw-bold mt-5">Deskripsi :</h5>
+              <p style={{ width: "450px" }}>{detailProduct.description}</p>
             </div>
             <div className="col-md-6">
               <h2 className="fw-bold">{detailProduct.name}</h2>
@@ -69,24 +113,54 @@ const Detail = () => {
               <p>Rating</p>
               <div className="line"></div>
               <p className="fw-bold">Harga</p>
-              <p className="price">{diskon(detailProduct.price)}</p>
-              <p className="real">{real()}</p>
-              <div className="d-flex align-items-center">
-                <button >-</button> <span className="count">1</span>
-                <button>+</button> <span className="stock" >12</span>
-                <span  className="stock">Stok</span>
+              <p className="price">{afterDiscount()}</p>
+              <p className="real">
+                {detailProduct.disc_price !== 0
+                  ? BeforeDiscount(detailProduct.price)
+                  : null}
+              </p>
+              <div className="d-flex align-items-center mt-2">
+                <button onClick={decrementCounter} disabled={counter <= 1} className={ counter <= 1 ? 'disabled-btn' : 'count-btn'}>
+                  -
+                </button>{" "}
+                <span className="count">{counter}</span>
+                <button
+                  onClick={incrementCounter}
+                  disabled={counter === detailProduct.stock}
+                  className={ counter === detailProduct.stock ? 'disabled-btn' : 'count-btn'}
+                >
+                  +
+                </button>{" "}
+                <span className="stock">{detailProduct.stock}</span>
+                <span className="stock">Stok</span>
               </div>
-              <button className="btn-cart"><CgShoppingCart size={25} style={{marginRight:"10px"}}/>Add to Cart</button>
+              <button className="btn-cart" onClick={() => onAdd(detailProduct.id, detailProduct.price, detailProduct.disc_price)}>
+                <CgShoppingCart size={25} style={{ marginRight: "10px" }} />
+                Add to Cart
+              </button>
               <div className="d-flex share">
-                <a href="/"><BiChat size={25} style={{marginRight:"5px", paddingBottom:"5px"}}/>Chat Penjual</a>
-                <a href="/"><BsShare size={25} style={{marginRight:"5px", paddingBottom:"5px"}}/>Bagikan</a>
+                <a href="/">
+                  <BiChat
+                    size={25}
+                    style={{ marginRight: "5px", paddingBottom: "5px" }}
+                  />
+                  Chat Penjual
+                </a>
+                <a href="/">
+                  <BsShare
+                    size={25}
+                    style={{ marginRight: "5px", paddingBottom: "5px" }}
+                  />
+                  Bagikan
+                </a>
               </div>
               <div className="line"></div>
-              <h5 className="fw-bold">Detail Produk</h5>
-                {detailProduct.detail && detailProduct.detail.map((detail, index) => (
-              <ul key={index}>
-                  <li>{detail}</li>
-              </ul>
+              <h5 className="fw-bold mb-4">Detail Produk</h5>
+              {detailProduct.detail &&
+                detailProduct.detail.map((detail, index) => (
+                  <ul key={index}>
+                    <li>{detail}</li>
+                  </ul>
                 ))}
             </div>
           </div>

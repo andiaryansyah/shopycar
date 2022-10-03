@@ -26,7 +26,7 @@ const Footer = () => {
            <a href="/">BERANDA</a>
            <a href="/">TENTANG KAMI</a>
            <a href="/">BERITA</a>
-           <a href="/">PRODUK</a>
+           <a href="/products">PRODUK</a>
           </div>
           <div className="col-md-4 text-light contact">
             <h5 className="fw-bold mb-4">Kontak Kami</h5>

@@ -17,20 +17,19 @@ const About = () => {
             <ul>
               <li className="mb-3">
                 <p className="card-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Imperdiet velit lacus vitae platea viverra eu cum egestas.
+                Mengimpor dan mengekspor suku cadang tuning baru dan bekas untuk kendaraan anda.
                 </p>
               </li>
               <li className="mb-3">
                 <p className="card-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Imperdiet velit lacus vitae platea viverra eu cum egestas.
+                 Membantu memasangkan suku cadang baru untuk mobil anda.
+                 Kami bertanggung jawab mengklaim sebagai pilihan sempurna bagi penggemar dan profesional mobil.
                 </p>
               </li>
               <li className="mb-3">
                 <p className="card-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Imperdiet velit lacus vitae platea viverra eu cum egestas.
+                kami di sini untuk menawarkan penggantian terbaik yang tidak hanya akan membuat mobil Anda berkinerja lebih baik, 
+                tetapi juga akan membuat Anda merasa aman dalam berkendara.
                 </p>
               </li>
             </ul>
