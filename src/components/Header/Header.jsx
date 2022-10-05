@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header.css";
 import HeaderImg from "../../assets/HeaderImg/Header.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -11,7 +12,9 @@ const Header = () => {
         <p>
         Penyedia Spare Part Mobil Terlengkap dan Terjamin Asli untuk kebutuhan Bisnis Anda
         </p>
-        <button>Cek Produk</button>
+        <Link to="/products">
+            <button>Cek Produk</button>
+        </Link>
       </div>
       </div>
      

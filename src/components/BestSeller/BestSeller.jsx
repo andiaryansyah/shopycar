@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { CgShoppingCart } from "react-icons/cg";
+// import { CgShoppingCart } from "react-icons/cg";
 import { Link } from "react-router-dom";
 
 import "./BestSeller.css";
@@ -62,7 +62,7 @@ const BestSeller = () => {
                       <div className="disc-mark">
                         <p className="text-center text-wrap m-auto">{discountMark(product.disc_price)}% OFF</p>
                       </div> : null}
-                      <Link to={`/detailproduct/${product.id}`} className="m-auto">
+                      <Link to="#" onClick={() => window.location.href=`/detailproduct/${product.id}`} className="m-auto">
                         <img
                           src={product.image}
                           className="card-img-top img-fluid"

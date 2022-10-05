@@ -33,7 +33,7 @@ const About = () => {
                 </p>
               </li>
             </ul>
-              <a className="about-link" href="/">Lihat Selengkapnya</a>
+              <a className="about-link" href="/about">Lihat Selengkapnya</a>
           </div>
         </div>
       </div>

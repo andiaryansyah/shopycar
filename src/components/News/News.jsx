@@ -10,7 +10,7 @@ const News = () => {
       <div className="container news">
         <div className="d-flex justify-content-between mb-3 pt-5">
           <h2 className="fw-bold"> BERITA POPULER</h2>
-          <a className="fw-bold text-link" href="/">Lihat Lainnya</a>
+          <a className="fw-bold text-link" href="/news">Lihat Lainnya</a>
         </div>
         <div className="row m-0">
           <div className="col-md-6">
@@ -21,7 +21,7 @@ const News = () => {
                 alt="..."
               />
               <div className="card-img-overlay">
-                <a href="/" className="card-text1 position-absolute">
+                <a href="/news" className="card-text1 position-absolute">
                   Apakah Mobil Matic Lebih Boros Dibandingkan Mobil Manual?
                 </a>
               </div>
@@ -35,7 +35,7 @@ const News = () => {
                 alt="..."
               />
               <div className="card-img-overlay">
-                <a href="/" className="card-text2 position-absolute">Periksa Kondisi Mobil Sebelum Mudik</a>
+                <a href="/news" className="card-text2 position-absolute">Periksa Kondisi Mobil Sebelum Mudik</a>
               </div>
             </div>
 
@@ -46,7 +46,7 @@ const News = () => {
                 alt="..."
               />
               <div className="card-img-overlay">
-                <a href="/" className="card-text2 position-absolute">Karakteristik dari Ban AT, MT dan HT</a>
+                <a href="/news" className="card-text2 position-absolute">Karakteristik dari Ban AT, MT dan HT</a>
               </div>
             </div>
           </div>

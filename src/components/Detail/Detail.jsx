@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getDetailProduct, addCart, getCartItems, getUpdateCart } from "../../store/ProductAction";
+import {
+  getDetailProduct,
+  addCart,
+  getCartItems,
+  getUpdateCart,
+} from "../../store/ProductAction";
 import { CgShoppingCart } from "react-icons/cg";
 import { BiChat } from "react-icons/bi";
-import { BsShare } from "react-icons/bs";
+import { BsShare, BsStarFill, BsStarHalf } from "react-icons/bs";
+import { toast } from "react-toastify";
 import "./Detail.css";
 
 const Detail = () => {
   const dispatch = useDispatch();
   const [counter, setCounter] = useState(1);
   // eslint-disable-next-line
-  const [ userId , setUserId ] = useState(1);
+  const [userId, setUserId] = useState(1);
   const { detailProduct, cartItems } = useSelector((state) => state.products);
   const { id } = useParams();
 
@@ -44,25 +50,32 @@ const Detail = () => {
   let decrementCounter = () => setCounter(counter - 1);
 
   const onAdd = (product_id, price, disc_price) => {
-    const tempCart = cartItems.find((cart) => 
-        product_id === cart.productId)
+    const tempCart = cartItems.find((cart) => product_id === cart.productId);
 
-    const cartId = tempCart.id
-
-    if (tempCart === null) {
+    if (tempCart === undefined) {
       dispatch(addCart(userId, product_id, counter, price, disc_price));
+      toast.success("Successfully add to cart", {
+        position: toast.POSITION.TOP_CENTER,
+      });
     } else {
-      let newQty = tempCart.qty + counter
-      if(newQty > tempCart.product.stock) {
-         alert("Stok melebihi batas") 
+      const cartId = tempCart.id;
+      let newQty = tempCart.qty + counter;
+      if (newQty > tempCart.product.stock) {
+        toast.error("Stok melebihi batas", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      } else {
+        dispatch(
+          getUpdateCart(cartId, userId, product_id, newQty, price, disc_price)
+        );
+        toast.success("Successfully add to cart", {
+          position: toast.POSITION.TOP_CENTER,
+        });
       }
-        else {
-          dispatch(getUpdateCart(cartId, userId, product_id, newQty, price, disc_price))
-        }
     }
 
     dispatch(getCartItems());
-  }
+  };
 
   useEffect(() => {
     dispatch(getDetailProduct(id));
@@ -98,11 +111,11 @@ const Detail = () => {
                     </p>
                   </div>
                 ) : null}
-                  <img
-                    src={detailProduct.image}
-                    className="img-fluid detail-img"
-                    alt="..."
-                  />
+                <img
+                  src={detailProduct.image}
+                  className="img-fluid detail-img"
+                  alt="..."
+                />
               </div>
               <h5 className="fw-bold mt-5">Deskripsi :</h5>
               <p style={{ width: "450px" }}>{detailProduct.description}</p>
@@ -110,7 +123,17 @@ const Detail = () => {
             <div className="col-md-6">
               <h2 className="fw-bold">{detailProduct.name}</h2>
               <h5 className="category">{detailProduct.category}</h5>
-              <p>Rating</p>
+              <small>
+                Rating :{" "}
+                <span style={{ color: "tomato", marginLeft: "5px" }}>
+                  <BsStarFill size={14} style={{ marginBottom: "3px" }} />{" "}
+                  <BsStarFill size={14} style={{ marginBottom: "3px" }} />{" "}
+                  <BsStarFill size={14} style={{ marginBottom: "3px" }} />{" "}
+                  <BsStarFill size={14} style={{ marginBottom: "3px" }} />{" "}
+                  <BsStarHalf size={14} style={{ marginBottom: "3px" }} />
+                </span>
+                <small className="mx-2">{detailProduct.rate}</small>
+              </small>
               <div className="line"></div>
               <p className="fw-bold">Harga</p>
               <p className="price">{afterDiscount()}</p>
@@ -120,21 +143,38 @@ const Detail = () => {
                   : null}
               </p>
               <div className="d-flex align-items-center mt-2">
-                <button onClick={decrementCounter} disabled={counter <= 1} className={ counter <= 1 ? 'disabled-btn' : 'count-btn'}>
+                <button
+                  onClick={decrementCounter}
+                  disabled={counter <= 1}
+                  className={counter <= 1 ? "disabled-btn" : "count-btn"}
+                >
                   -
                 </button>{" "}
                 <span className="count">{counter}</span>
                 <button
                   onClick={incrementCounter}
                   disabled={counter === detailProduct.stock}
-                  className={ counter === detailProduct.stock ? 'disabled-btn' : 'count-btn'}
+                  className={
+                    counter === detailProduct.stock
+                      ? "disabled-btn"
+                      : "count-btn"
+                  }
                 >
                   +
                 </button>{" "}
                 <span className="stock">{detailProduct.stock}</span>
                 <span className="stock">Stok</span>
               </div>
-              <button className="btn-cart" onClick={() => onAdd(detailProduct.id, detailProduct.price, detailProduct.disc_price)}>
+              <button
+                className="btn-cart"
+                onClick={() =>
+                  onAdd(
+                    detailProduct.id,
+                    detailProduct.price,
+                    detailProduct.disc_price
+                  )
+                }
+              >
                 <CgShoppingCart size={25} style={{ marginRight: "10px" }} />
                 Add to Cart
               </button>

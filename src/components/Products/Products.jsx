@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Products.css";
 import { CgShoppingCart } from "react-icons/cg";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,7 +6,6 @@ import { getProducts, setPageProduct, setSearchProduct, addCart, getCartItems, g
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
-import { useState } from "react";
 import { toast } from 'react-toastify';
 
 const Products = () => {
@@ -61,11 +60,10 @@ const Products = () => {
   const onAdd = (product_id, price, disc_price) => {
     const tempCart = cartItems.find((item) =>  item.productId === product_id);
 
-    const cartId = tempCart.id
-
-    if (tempCart === null) {
+    if (tempCart === undefined) {
       dispatch(addCart(userId, product_id, qty, price, disc_price));
     } else {
+      const cartId = tempCart.id
       let newQty = tempCart.qty + 1
       dispatch(getUpdateCart(cartId, userId, product_id, newQty, price, disc_price))
     }

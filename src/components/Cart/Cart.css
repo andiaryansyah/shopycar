@@ -38,11 +38,19 @@
 .cart-styles .product-cart p.product-name{
     margin-top: 17px;
     margin-left: 20px;
-    width: 420px;
+    width: 410px;
 }
 
 .cart-styles .product-cart p.product-list{
     margin: 0 70px 0 0;
+}
+
+.cart-styles .product-cart span.product-disc{
+    color: #A4A4A4;
+    text-decoration: line-through;
+    line-height: 0;
+    position: absolute;
+    left: 40%;
 }
 
 .cart-styles .product-cart a.remove{

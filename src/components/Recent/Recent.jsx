@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { CgShoppingCart } from "react-icons/cg";
+// import { CgShoppingCart } from "react-icons/cg";
 import "./Recent.css";
 import { getRecentProducts } from "../../store/ProductAction";
-import { Link } from "react-router-dom";
 
 const Recent = () => {
   const dispatch = useDispatch();
@@ -64,7 +64,7 @@ const Recent = () => {
                           </p>
                         </div>
                       ) : null}
-                      <Link to={`/detailproduct/${product.id}`} className="m-auto">
+                      <Link to="#" onClick={() => window.location.href=`/detailproduct/${product.id}`} className="m-auto">
                         <img
                           src={product.image}
                           className="card-img-top img-fluid"

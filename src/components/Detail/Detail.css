@@ -38,7 +38,8 @@
 
 .detail-product .detail-body .line {
     border: 1px solid lightgray;
-    margin-bottom: 1.5rem;
+    margin-top: 8px;
+    margin-bottom: 24px;
 }
 
 .detail-product .detail-body .price {

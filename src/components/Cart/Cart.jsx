@@ -1,16 +1,27 @@
 import React, { useEffect } from "react";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCartItems, getUpdateCart, getRemoveCart } from "../../store/ProductAction";
+import { Link } from "react-router-dom";
+import {
+  getCartItems,
+  getUpdateCart,
+  getRemoveCart,
+} from "../../store/ProductAction";
 import "./Cart.css";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.products);
-  const [total, setTotal] = useState(0);
   let newQty;
 
-  const toggleCartItemQuantity = async (id, user_id,product_id, qty, price, disc_price ,value) => {
+  const toggleCartItemQuantity = async (
+    id,
+    user_id,
+    product_id,
+    qty,
+    price,
+    disc_price,
+    value
+  ) => {
     if (value === "inc") {
       newQty = qty + 1;
     } else if (value === "dec") {
@@ -23,7 +34,11 @@ const Cart = () => {
   const onRemove = (id) => {
     dispatch(getRemoveCart(id));
     dispatch(getCartItems());
-  }
+  };
+
+  let totalPrice = cartItems.reduce(
+    (acc, item) => acc + (item.qty * (item.price - (item.price * item.disc_price))), 0
+);
 
   const formatIDR = (number) => {
     return new Intl.NumberFormat("id-ID", {
@@ -33,14 +48,34 @@ const Cart = () => {
     }).format(number);
   };
 
+  const afterDiscount = (productPrice, productDisc) => {
+    const price = productPrice;
+    const disc = productDisc;
+    const tempPrice = price * disc;
+    const result = price - tempPrice;
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+    }).format(result);
+  };
+
+  const subTotal = (productPrice, qty, productDisc) => {
+    const price = productPrice;
+    const disc = productDisc;
+    const tempPrice = price * disc;
+    const tempResult = price - tempPrice;
+    const result = tempResult * qty;
+
+    return result;
+  };
+
   useEffect(() => {
     dispatch(getCartItems());
     // eslint-disable-next-line
   }, []);
 
-  useEffect(() => {
-    
-  }, [cartItems]);
+  useEffect(() => {}, [cartItems]);
 
   return (
     <div className="cart-styles">
@@ -64,11 +99,11 @@ const Cart = () => {
       </div>
       <div className="product-cart">
         <div className="row d-flex flex-column">
-          {cartItems.map((item) => (
+          {cartItems.map((item,index) => (
             <>
               <div
                 className="col d-flex align-items-center pt-4"
-                key={item.product.id}
+                key={index}
               >
                 <input
                   className="form-check-input"
@@ -81,10 +116,17 @@ const Cart = () => {
                   alt="..."
                   width="80px"
                   height="80px"
-                  style={{marginLeft:"10px"}}
+                  style={{ marginLeft: "10px" }}
                 />
                 <p className="product-name">{item.product.name}</p>
-                <p className="product-list">{formatIDR(item.product.price)}</p>
+                <span className="product-disc">
+                  {item.product.disc_price !== 0
+                    ? formatIDR(item.product.price)
+                    : null}
+                </span>
+                <p className="product-list">
+                  {afterDiscount(item.product.price, item.product.disc_price)}
+                </p>
                 <div
                   className="d-flex align-items-center mt-2"
                   style={{ marginRight: "75px" }}
@@ -130,9 +172,13 @@ const Cart = () => {
                   </button>{" "}
                 </div>
                 <p className="product-list">
-                  {formatIDR(item.product.price * item.qty)}
+                  {item.product.disc_price !== 0
+                    ? formatIDR(subTotal(item.price, item.qty, item.disc_price))
+                    : formatIDR(item.price * item.qty)}
                 </p>
-                  <a className="remove" onClick={() => onRemove(item.id)}>Hapus</a>
+                <Link className="remove" to="#" onClick={() => onRemove(item.id)}>
+                  Hapus
+                </Link>
               </div>
               <div className="block"></div>
             </>
@@ -142,7 +188,7 @@ const Cart = () => {
       <div className="checkout">
         <div className=" d-flex justify-content-end align-items-center">
           <span>Total ({cartItems.length} Produk):</span>
-          <span className="total-price">Rp.200.000</span>
+          <span className="total-price">{formatIDR(totalPrice)}</span>
           <button>CHECKOUT</button>
         </div>
       </div>

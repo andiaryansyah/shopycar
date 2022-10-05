@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import logo from "../../assets/HeaderImg/logo.png";
 import { FaUser } from "react-icons/fa";
-import { GoSearch } from "react-icons/go";
+// import { GoSearch } from "react-icons/go";
 import { CgShoppingCart } from "react-icons/cg";
 import {Link} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
@@ -69,7 +69,7 @@ useEffect(() => {
                       ? 'nav-link active px-lg-3'
                       : 'nav-link px-lg-3'
                   }
-                  to="/products"
+                  to="/about"
                   onClick={() => {
                     setActiveMenu('tentang');
                   }}>
@@ -83,7 +83,7 @@ useEffect(() => {
                       ? 'nav-link active px-lg-3'
                       : 'nav-link px-lg-3'
                   }
-                  to="/products"
+                  to="/news"
                   onClick={() => {
                     setActiveMenu('berita');
                   }}>
