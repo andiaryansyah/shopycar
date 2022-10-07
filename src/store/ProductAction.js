@@ -123,12 +123,12 @@ export const getUpdateCart = (id, user_id, product_id, qty, price, disc_price) =
   };
 };
 
-export const getCartItems = () => {
+export const getCartItems = (id) => {
     return async (dispatch) => {
       try {
         dispatch(setLoading(true));
         await axios
-          .get(`http://localhost:3000/users/1/carts?_expand=product`)
+          .get(`http://localhost:3000/users/${id}/carts?_expand=product`)
           .then((res) => {
             dispatch(setLoading(false));
             dispatch(setCartItems(res.data));

@@ -8,13 +8,12 @@ import Cartpage from './pages/Cartpage/Cartpage';
 import { ToastContainer } from 'react-toastify';
 import Aboutpage from './pages/Aboutpage/Aboutpage';
 import Newspage from './pages/Newspage/Newspage';
-import ScrollToTop from './components/ScrollToTop';
 import Signin from './components/Signin/Signin';
+import Signup from './components/Signup/Signup';
 
 function App() {
   return (
    <BrowserRouter>
-   <ScrollToTop />
    <Navbar />
    <ToastContainer />
    <Routes>
@@ -25,6 +24,7 @@ function App() {
     <Route path='/about' element={<Aboutpage />}/>
     <Route path='/news' element={<Newspage />}/>
     <Route path='/signin' element={<Signin />}/>
+    <Route path='/signup' element={<Signup />}/>
    </Routes>
    <Footer />
    </BrowserRouter>

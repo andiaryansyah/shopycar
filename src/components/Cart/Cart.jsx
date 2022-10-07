@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -11,6 +11,8 @@ import "./Cart.css";
 const Cart = () => {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.products);
+  let user_id = parseInt(localStorage.getItem('id'))
+  const [userId, setUserId] = useState(user_id)
   let newQty;
 
   const toggleCartItemQuantity = async (
@@ -28,12 +30,12 @@ const Cart = () => {
       newQty = qty - 1;
     }
     dispatch(getUpdateCart(id, user_id, product_id, newQty, price, disc_price));
-    dispatch(getCartItems());
+    dispatch(getCartItems(userId));
   };
 
   const onRemove = (id) => {
     dispatch(getRemoveCart(id));
-    dispatch(getCartItems());
+    dispatch(getCartItems(userId));
   };
 
   let totalPrice = cartItems.reduce(
@@ -71,11 +73,13 @@ const Cart = () => {
   };
 
   useEffect(() => {
-    dispatch(getCartItems());
+    dispatch(getCartItems(userId))
     // eslint-disable-next-line
   }, []);
 
-  useEffect(() => {}, [cartItems]);
+  useEffect(() => {
+
+  }, [cartItems]);
 
   return (
     <div className="cart-styles">
@@ -89,6 +93,7 @@ const Cart = () => {
           className="form-check-input"
           type="checkbox"
           value=""
+          checked="true"
           aria-label="Checkbox for following text input"
         />
         <p>Produk</p>
@@ -99,16 +104,17 @@ const Cart = () => {
       </div>
       <div className="product-cart">
         <div className="row d-flex flex-column">
-          {cartItems.map((item,index) => (
+          {cartItems.map((item) => (
             <>
-              <div
+              <li
                 className="col d-flex align-items-center pt-4"
-                key={index}
+                key={item.id}
               >
                 <input
                   className="form-check-input"
                   type="checkbox"
                   value=""
+                  checked="true"
                   aria-label="Checkbox for following text input"
                 />
                 <img
@@ -179,7 +185,7 @@ const Cart = () => {
                 <Link className="remove" to="#" onClick={() => onRemove(item.id)}>
                   Hapus
                 </Link>
-              </div>
+              </li>
               <div className="block"></div>
             </>
           ))}

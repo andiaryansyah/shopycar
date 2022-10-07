@@ -43,6 +43,8 @@
     bottom: 44px;
 }
 
+
+
 @media screen and (max-width:1040px){
     .nav-custom {
         padding-left: 0;

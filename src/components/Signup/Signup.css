@@ -1,15 +1,15 @@
-.signin-wrapper {
+.signup-wrapper {
     background: #F75623;
     padding: 56px;
 }
 
-.signin-wrapper .login {
+.signup-wrapper .login {
     background: #fff;
     padding: 36px 24px;
     border-radius: 10px;
 }
 
-.signin-wrapper .form-input input{
+.signup-wrapper .form-input input{
     width: 100%;
     margin-top: 24px;
     padding: 6px 8px;
@@ -17,16 +17,16 @@
 
 }
 
-.signin-wrapper .form-input input::placeholder {
+.signup-wrapper .form-input input::placeholder {
     color: #cfcdcd;
 }
 
-.signin-wrapper .form-input input:focus{
+.signup-wrapper .form-input input:focus{
     outline: none;
     border: 1px solid #333;
 }
 
-.signin-wrapper .btn-login {
+.signup-wrapper .btn-login {
     width: 100%;
     margin-top: 36px;
     padding: 8px 0;
@@ -36,11 +36,11 @@
     color: #fff;
 }
 
-.signin-wrapper .btn-login:hover {
+.signup-wrapper .btn-login:hover {
     background: #ff7348;
 }
 
-.signin-wrapper .btn-login:active {
+.signup-wrapper .btn-login:active {
     background: #F75623;
 
 }

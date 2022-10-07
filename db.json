@@ -6,7 +6,7 @@
       "category": "Oli",
       "price": 197000,
       "disc_price": 0.15,
-      "rate":4.7,
+      "rate": 4.7,
       "stock": 12,
       "sell": 10,
       "detail": [
@@ -24,7 +24,7 @@
       "category": "Oli",
       "price": 354000,
       "disc_price": 0,
-      "rate":4.7,
+      "rate": 4.7,
       "stock": 7,
       "sell": 7,
       "detail": [
@@ -42,7 +42,7 @@
       "category": "Kampas",
       "price": 250000,
       "disc_price": 0,
-      "rate":4.8,
+      "rate": 4.8,
       "stock": 9,
       "sell": 8,
       "detail": [
@@ -60,7 +60,7 @@
       "category": "Aki",
       "price": 275000,
       "disc_price": 0,
-      "rate":4.6,
+      "rate": 4.6,
       "stock": 3,
       "sell": 13,
       "detail": [
@@ -78,7 +78,7 @@
       "category": "Audio",
       "price": 850000,
       "disc_price": 0,
-      "rate":4.6,
+      "rate": 4.6,
       "stock": 6,
       "sell": 5,
       "detail": [
@@ -96,7 +96,7 @@
       "category": "Ban",
       "price": 1200000,
       "disc_price": 0,
-      "rate":4.8,
+      "rate": 4.8,
       "stock": 6,
       "sell": 3,
       "detail": [
@@ -114,7 +114,7 @@
       "category": "Aki",
       "price": 960000,
       "disc_price": 0,
-      "rate":4.5,
+      "rate": 4.5,
       "stock": 2,
       "sell": 4,
       "detail": [
@@ -132,7 +132,7 @@
       "category": "Oli",
       "price": 178000,
       "disc_price": 0,
-      "rate":4.9,
+      "rate": 4.9,
       "stock": 12,
       "sell": 5,
       "detail": [
@@ -150,7 +150,7 @@
       "category": "Ban",
       "price": 208000,
       "disc_price": 0.1,
-      "rate":4.9,
+      "rate": 4.9,
       "stock": 12,
       "sell": 5,
       "detail": [
@@ -169,16 +169,90 @@
       "username": "admin",
       "password": "admin",
       "email": "admin@gmail.com"
+    },
+    {
+      "username": "Apriandi",
+      "email": "apriandi@gmail.com",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "username": "amar",
+      "email": "amar@gmail.com",
+      "password": "123456",
+      "id": 4
+    },
+    {
+      "username": "andi",
+      "email": "andi@gmail.com",
+      "password": "123456",
+      "id": 5
     }
   ],
   "carts": [
     {
       "userId": 1,
       "productId": 8,
-      "qty": 1,
+      "qty": 2,
       "price": 178000,
       "disc_price": 0,
       "id": 1
+    },
+    {
+      "userId": 1,
+      "productId": 3,
+      "qty": 9,
+      "price": 250000,
+      "disc_price": 0,
+      "id": 2
+    },
+    {
+      "userId": 3,
+      "productId": 3,
+      "qty": 1,
+      "price": 250000,
+      "disc_price": 0,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "productId": 2,
+      "qty": 1,
+      "price": 354000,
+      "disc_price": 0,
+      "id": 4
+    },
+    {
+      "userId": 4,
+      "productId": 2,
+      "qty": 1,
+      "price": 354000,
+      "disc_price": 0,
+      "id": 5
+    },
+    {
+      "userId": 4,
+      "productId": 1,
+      "qty": 1,
+      "price": 197000,
+      "disc_price": 0.15,
+      "id": 6
+    },
+    {
+      "userId": 5,
+      "productId": 2,
+      "qty": 7,
+      "price": 354000,
+      "disc_price": 0,
+      "id": 7
+    },
+    {
+      "userId": 5,
+      "productId": 3,
+      "qty": 3,
+      "price": 250000,
+      "disc_price": 0,
+      "id": 8
     }
   ]
 }

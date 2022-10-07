@@ -1,24 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Products.css";
 import { CgShoppingCart } from "react-icons/cg";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts, setPageProduct, setSearchProduct, addCart, getCartItems, getUpdateCart} from "../../store/ProductAction";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import {
+  getProducts,
+  setPageProduct,
+  setSearchProduct,
+  addCart,
+  getCartItems,
+  getUpdateCart,
+} from "../../store/ProductAction";
+import { Link, useNavigate } from "react-router-dom";
 import ReactPaginate from "react-paginate";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
+import ScrollToTop from '../ScrollToTop';
 
 const Products = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [userId, setUserId] = useState("");
   // eslint-disable-next-line
-  const [ userId , setUserId ] = useState(1);
-  // eslint-disable-next-line
-  const [qty, setQty ] = useState(1);
-  const { products } = useSelector((state) => state.products);
-  const { cartItems } = useSelector((state) => state.products);
-  const { pages } = useSelector((state) => state.products);
-  const { limit } = useSelector((state) => state.products);
-  const { searchProduct } = useSelector((state) => state.products);
+  const [qty, setQty] = useState(1);
+  const { products, cartItems, pages, limit, searchProduct } = useSelector(
+    (state) => state.products
+  );
   // eslint-disable-next-line
 
   const productPerPage = limit;
@@ -29,7 +34,6 @@ const Products = () => {
 
   const changePage = ({ selected }) => {
     // dispatch(setPageProduct(selected));
-    
   };
 
   const BeforeDiscount = (number) => {
@@ -51,30 +55,35 @@ const Products = () => {
       minimumFractionDigits: 0,
     }).format(result);
   };
-  
+
   const discountMark = (discPrice) => {
     const percentage = discPrice * 100;
     return percentage;
   };
 
   const onAdd = (product_id, price, disc_price) => {
-    const tempCart = cartItems.find((item) =>  item.productId === product_id);
-
-    if (tempCart === undefined) {
-      dispatch(addCart(userId, product_id, qty, price, disc_price));
+    const user_id = parseInt(userId)
+    const tempCart = cartItems.find((item) => item.productId === product_id);
+    if (userId === null) {
+      navigate("/signin")
+    } else if (tempCart === undefined) {
+      dispatch(addCart(user_id, product_id, qty, price, disc_price));
+      toast.success("Successfully add to cart", {
+        position: toast.POSITION.TOP_CENTER,
+      });
     } else {
-      const cartId = tempCart.id
-      let newQty = tempCart.qty + 1
-      dispatch(getUpdateCart(cartId, userId, product_id, newQty, price, disc_price))
+      const cartId = tempCart.id;
+      let newQty = tempCart.qty + 1;
+      dispatch(getUpdateCart(cartId, user_id, product_id, newQty, price, disc_price));
+      toast.success("Successfully add to cart", {
+        position: toast.POSITION.TOP_CENTER,
+      });
     }
-
-    dispatch(getCartItems());
-    toast.success("Successfully add to cart", {
-      position: toast.POSITION.TOP_CENTER
-  })
-  }
+    dispatch(getCartItems(userId));
+  };
 
   useEffect(() => {
+    setUserId(localStorage.getItem("id"))
     dispatch(getProducts());
     // eslint-disable-next-line
   }, []);
@@ -91,6 +100,7 @@ const Products = () => {
   return (
     <>
       <div className="products">
+       <ScrollToTop />
         <div className="container">
           <div className="row">
             {searchProduct.length === 0 ? (
@@ -135,9 +145,13 @@ const Products = () => {
                         )}
                       </p>
                     </div>
-                    <button onClick={() => onAdd(product.id, product.price, product.disc_price)}>
+                    <button
+                      onClick={() =>
+                        onAdd(product.id, product.price, product.disc_price)
+                      }
+                    >
                       <CgShoppingCart size={25} />
-                      <span className="btn-text" >Add to Cart</span>
+                      <span className="btn-text">Add to Cart</span>
                     </button>
                   </div>
                 </div>

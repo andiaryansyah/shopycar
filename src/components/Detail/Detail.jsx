@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   getDetailProduct,
   addCart,
@@ -15,6 +15,7 @@ import "./Detail.css";
 
 const Detail = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [counter, setCounter] = useState(1);
   // eslint-disable-next-line
   const [userId, setUserId] = useState(1);
@@ -50,10 +51,13 @@ const Detail = () => {
   let decrementCounter = () => setCounter(counter - 1);
 
   const onAdd = (product_id, price, disc_price) => {
+    const user_id = parseInt(userId)
     const tempCart = cartItems.find((cart) => product_id === cart.productId);
-
+    if (userId === null) {
+      navigate("/signin")
+    } else
     if (tempCart === undefined) {
-      dispatch(addCart(userId, product_id, counter, price, disc_price));
+      dispatch(addCart(user_id, product_id, counter, price, disc_price));
       toast.success("Successfully add to cart", {
         position: toast.POSITION.TOP_CENTER,
       });
@@ -66,7 +70,7 @@ const Detail = () => {
         });
       } else {
         dispatch(
-          getUpdateCart(cartId, userId, product_id, newQty, price, disc_price)
+          getUpdateCart(cartId, user_id, product_id, newQty, price, disc_price)
         );
         toast.success("Successfully add to cart", {
           position: toast.POSITION.TOP_CENTER,
@@ -74,10 +78,11 @@ const Detail = () => {
       }
     }
 
-    dispatch(getCartItems());
+    dispatch(getCartItems(userId));
   };
 
   useEffect(() => {
+    setUserId(localStorage.getItem("id"))
     dispatch(getDetailProduct(id));
     // eslint-disable-next-line
   }, []);

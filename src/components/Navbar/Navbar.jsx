@@ -4,24 +4,31 @@ import logo from "../../assets/HeaderImg/logo.png";
 import { FaUser } from "react-icons/fa";
 // import { GoSearch } from "react-icons/go";
 import { CgShoppingCart } from "react-icons/cg";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCartItems } from "../../store/ProductAction";
 import { useEffect } from "react";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const { cartItems } = useSelector((state) => state.products)
+  const { cartItems } = useSelector((state) => state.products);
   const [activeMenu, setActiveMenu] = useState("beranda");
-  
-useEffect(() => {
-  dispatch(getCartItems());
-    // eslint-disable-next-line
-},[])
 
-useEffect(() => {
+  const isLogin = localStorage.getItem("name");
+  let getUserId =  (parseInt(localStorage.getItem("id")));
+
+  const isLogout = () => {
+    localStorage.clear();
+  };
+
+  useEffect(() => {
+    dispatch(getCartItems(getUserId));
     // eslint-disable-next-line
-},[cartItems])
+  }, []);
+
+  useEffect(() => {
+    // eslint-disable-next-line
+  }, [cartItems]);
 
   return (
     <>
@@ -50,57 +57,63 @@ useEffect(() => {
                 <Link
                   id="beranda"
                   className={
-                    activeMenu === 'beranda'
-                      ? 'nav-link active px-lg-3'
-                      : 'nav-link px-lg-3'
+                    activeMenu === "beranda"
+                      ? "nav-link active px-lg-3"
+                      : "nav-link px-lg-3"
                   }
                   to="/"
                   onClick={() => {
-                    setActiveMenu('beranda');
+                    setActiveMenu("beranda");
                   }}
                 >
                   BERANDA
                 </Link>
               </li>
               <li className="nav-item">
-                <Link  id="tentang"
+                <Link
+                  id="tentang"
                   className={
-                    activeMenu === 'tentang'
-                      ? 'nav-link active px-lg-3'
-                      : 'nav-link px-lg-3'
+                    activeMenu === "tentang"
+                      ? "nav-link active px-lg-3"
+                      : "nav-link px-lg-3"
                   }
                   to="/about"
                   onClick={() => {
-                    setActiveMenu('tentang');
-                  }}>
+                    setActiveMenu("tentang");
+                  }}
+                >
                   TENTANG KAMI
                 </Link>
               </li>
               <li className="nav-item">
-              <Link  id="berita"
+                <Link
+                  id="berita"
                   className={
-                    activeMenu === 'berita'
-                      ? 'nav-link active px-lg-3'
-                      : 'nav-link px-lg-3'
+                    activeMenu === "berita"
+                      ? "nav-link active px-lg-3"
+                      : "nav-link px-lg-3"
                   }
                   to="/news"
                   onClick={() => {
-                    setActiveMenu('berita');
-                  }}>
+                    setActiveMenu("berita");
+                  }}
+                >
                   BERITA
                 </Link>
               </li>
               <li className="nav-item">
-              <Link  id="products"
+                <Link
+                  id="products"
                   className={
-                    activeMenu === 'products'
-                      ? 'nav-link active px-lg-3'
-                      : 'nav-link px-lg-3'
+                    activeMenu === "products"
+                      ? "nav-link active px-lg-3"
+                      : "nav-link px-lg-3"
                   }
                   to="/products"
                   onClick={() => {
-                    setActiveMenu('products');
-                  }}>
+                    setActiveMenu("products");
+                  }}
+                >
                   PRODUK
                 </Link>
               </li>
@@ -109,15 +122,57 @@ useEffect(() => {
               {/* <span className="px-2">
                 <GoSearch className="cursor-icons" size={20} />
               </span> */}
-              <span className="px-3">
-                <Link to="/cart">
-                { cartItems.length === 0 ? <span className="cart-count">0</span> : <span className="cart-count">{cartItems.length}</span>}
-                    <CgShoppingCart className="cursor-icons" size={25} />
-                </Link>
-              </span>
-              <button className="btns d-flex align-items-center" type="submit">
-                <FaUser style={{ marginRight: "10px" }} /> Masuk / Daftar
-              </button>
+              {!isLogin ? (
+                <>
+                  <span className="px-3">
+                    <Link to="/signin">
+                      <CgShoppingCart className="cursor-icons" size={30} />
+                    </Link>
+                  </span>
+                  <Link to="/signin" className="text-decoration-none">
+                    <button
+                      className="btns d-flex align-items-center "
+                      type="submit"
+                    >
+                      <FaUser style={{ marginRight: "10px" }} /> Masuk / Daftar
+                    </button>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <span className="px-3">
+                    <Link to="/cart">
+                      <span className="cart-count">{cartItems.length}</span>
+                      <CgShoppingCart className="cursor-icons" size={30} />
+                    </Link>
+                  </span>
+                  <div className="dropdown">
+                    <h5
+                      className="dropdown-toggle"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                    >
+                      {isLogin}
+                    </h5>
+                    <ul className="dropdown-menu">
+                      <li>
+                        <a className="dropdown-item" href="#Action1">
+                          Akun Saya
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          className="dropdown-item"
+                          href="/"
+                          onClick={() => isLogout()}
+                        >
+                          Log Out
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>

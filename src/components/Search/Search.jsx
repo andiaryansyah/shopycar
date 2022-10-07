@@ -60,7 +60,7 @@ const Search = () => {
                 onChange={handleLimit}
               >
                 <option value="4">4</option>
-                <option selected value="8" >
+                <option value="8" >
                   8
                 </option>
                 <option value="12">12</option>
