@@ -12,7 +12,7 @@ import { useEffect } from "react";
 const Navbar = () => {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.products);
-  const [activeMenu, setActiveMenu] = useState("beranda");
+  const [activeMenu, setActiveMenu] = useState("home");
 
   const isLogin = localStorage.getItem("name");
   let getUserId =  (parseInt(localStorage.getItem("id")));
@@ -21,12 +21,25 @@ const Navbar = () => {
     localStorage.clear();
   };
 
+  const handleActiveMenu = () => {
+    if(window.location.pathname === "/") {
+      setActiveMenu("home")
+    } else if(window.location.pathname === "/products") {
+      setActiveMenu("products")
+    }else if(window.location.pathname === "/news") {
+      setActiveMenu("news")
+    }else if(window.location.pathname === "/about") {
+      setActiveMenu("about")
+    }
+  }
+
   useEffect(() => {
     dispatch(getCartItems(getUserId));
     // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
+    handleActiveMenu()
     // eslint-disable-next-line
   }, [cartItems]);
 
@@ -55,15 +68,15 @@ const Navbar = () => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link
-                  id="beranda"
+                  id="home"
                   className={
-                    activeMenu === "beranda"
+                    activeMenu === "home"
                       ? "nav-link active px-lg-3"
                       : "nav-link px-lg-3"
                   }
                   to="/"
                   onClick={() => {
-                    setActiveMenu("beranda");
+                    setActiveMenu("home");
                   }}
                 >
                   BERANDA
@@ -71,15 +84,15 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <Link
-                  id="tentang"
+                  id="about"
                   className={
-                    activeMenu === "tentang"
+                    activeMenu === "about"
                       ? "nav-link active px-lg-3"
                       : "nav-link px-lg-3"
                   }
                   to="/about"
                   onClick={() => {
-                    setActiveMenu("tentang");
+                    setActiveMenu("about");
                   }}
                 >
                   TENTANG KAMI
@@ -87,15 +100,15 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <Link
-                  id="berita"
+                  id="news"
                   className={
-                    activeMenu === "berita"
+                    activeMenu === "news"
                       ? "nav-link active px-lg-3"
                       : "nav-link px-lg-3"
                   }
                   to="/news"
                   onClick={() => {
-                    setActiveMenu("berita");
+                    setActiveMenu("news");
                   }}
                 >
                   BERITA

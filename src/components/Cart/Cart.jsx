@@ -11,8 +11,9 @@ import "./Cart.css";
 const Cart = () => {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.products);
+  const [checkedState, setCheckedState] = useState(new Array(cartItems.length).fill(false));
+  const [total, setTotal] = useState(0);
   let user_id = parseInt(localStorage.getItem('id'))
-  const [userId, setUserId] = useState(user_id)
   let newQty;
 
   const toggleCartItemQuantity = async (
@@ -29,18 +30,14 @@ const Cart = () => {
     } else if (value === "dec") {
       newQty = qty - 1;
     }
-    dispatch(getUpdateCart(id, user_id, product_id, newQty, price, disc_price));
-    dispatch(getCartItems(userId));
+    await dispatch(getUpdateCart(id, user_id, product_id, newQty, price, disc_price));
+    dispatch(getCartItems(user_id));
   };
 
   const onRemove = (id) => {
     dispatch(getRemoveCart(id));
-    dispatch(getCartItems(userId));
+    dispatch(getCartItems(user_id));
   };
-
-  let totalPrice = cartItems.reduce(
-    (acc, item) => acc + (item.qty * (item.price - (item.price * item.disc_price))), 0
-);
 
   const formatIDR = (number) => {
     return new Intl.NumberFormat("id-ID", {
@@ -72,13 +69,35 @@ const Cart = () => {
     return result;
   };
 
+  
+  const handleOnChange = (position) => {
+    const updatedCheckedState = checkedState.map((item, index) =>
+      index === position ? !item : item
+    );
+
+    setCheckedState(updatedCheckedState);
+
+    const totalPrice = updatedCheckedState.reduce(
+      (sum, currentState, index) => {
+        if (currentState === true) {
+          return sum + ((cartItems[index].price - (cartItems[index].price * cartItems[index].disc_price)) * cartItems[index].qty);
+        }
+        return sum;
+      },
+      0
+    );
+
+    setTotal(totalPrice);
+  };
+
   useEffect(() => {
-    dispatch(getCartItems(userId))
+    dispatch(getCartItems(user_id))
     // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
-
+    handleOnChange()
+    // eslint-disable-next-line
   }, [cartItems]);
 
   return (
@@ -92,8 +111,6 @@ const Cart = () => {
         <input
           className="form-check-input"
           type="checkbox"
-          value=""
-          checked="true"
           aria-label="Checkbox for following text input"
         />
         <p>Produk</p>
@@ -104,17 +121,20 @@ const Cart = () => {
       </div>
       <div className="product-cart">
         <div className="row d-flex flex-column">
-          {cartItems.map((item) => (
+          {cartItems.map((item, index) => (
             <>
               <li
                 className="col d-flex align-items-center pt-4"
-                key={item.id}
+                key={index}
               >
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  value=""
-                  checked="true"
+                  id={`custom-checkbox-${index}`}
+                  name={item.product.name}
+                  value={item.product.name}
+                  checked={checkedState[index]}
+                  onChange={() => handleOnChange(index)}
                   aria-label="Checkbox for following text input"
                 />
                 <img
@@ -178,9 +198,7 @@ const Cart = () => {
                   </button>{" "}
                 </div>
                 <p className="product-list">
-                  {item.product.disc_price !== 0
-                    ? formatIDR(subTotal(item.price, item.qty, item.disc_price))
-                    : formatIDR(item.price * item.qty)}
+                  {formatIDR(subTotal(item.price, item.qty, item.disc_price))}
                 </p>
                 <Link className="remove" to="#" onClick={() => onRemove(item.id)}>
                   Hapus
@@ -194,7 +212,7 @@ const Cart = () => {
       <div className="checkout">
         <div className=" d-flex justify-content-end align-items-center">
           <span>Total ({cartItems.length} Produk):</span>
-          <span className="total-price">{formatIDR(totalPrice)}</span>
+          <span className="total-price">{formatIDR(total)}</span>
           <button>CHECKOUT</button>
         </div>
       </div>

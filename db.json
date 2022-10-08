@@ -209,7 +209,7 @@
     {
       "userId": 3,
       "productId": 3,
-      "qty": 1,
+      "qty": 5,
       "price": 250000,
       "disc_price": 0,
       "id": 3
@@ -231,17 +231,9 @@
       "id": 5
     },
     {
-      "userId": 4,
-      "productId": 1,
-      "qty": 1,
-      "price": 197000,
-      "disc_price": 0.15,
-      "id": 6
-    },
-    {
       "userId": 5,
       "productId": 2,
-      "qty": 7,
+      "qty": 3,
       "price": 354000,
       "disc_price": 0,
       "id": 7
@@ -249,10 +241,34 @@
     {
       "userId": 5,
       "productId": 3,
-      "qty": 3,
+      "qty": 2,
       "price": 250000,
       "disc_price": 0,
       "id": 8
+    },
+    {
+      "userId": 4,
+      "productId": 1,
+      "qty": 1,
+      "price": 197000,
+      "disc_price": 0.15,
+      "id": 9
+    },
+    {
+      "userId": 4,
+      "productId": 3,
+      "qty": 6,
+      "price": 250000,
+      "disc_price": 0,
+      "id": 10
+    },
+    {
+      "userId": 3,
+      "productId": 6,
+      "qty": 1,
+      "price": 1200000,
+      "disc_price": 0,
+      "id": 11
     }
   ]
 }
