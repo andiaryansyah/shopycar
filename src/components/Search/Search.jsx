@@ -42,7 +42,7 @@ const Search = () => {
           <div className="search-content">
             <div className="input-group">
               <span className="input-group-text">
-                <GoSearch size={25} />
+                <GoSearch />
               </span>
               <input
                 className="input-produk"
@@ -51,7 +51,7 @@ const Search = () => {
                 onChange={(e) => setKeyword(e.target.value)}
               />
             </div>
-            <div className="d-flex align-items-center">
+            <div className="show-limit">
               <span className="show">Show:</span>
               <select
                 className="form-select form-select-md count"
@@ -66,7 +66,7 @@ const Search = () => {
                 <option value="12">12</option>
               </select>
             </div>
-            <div className="d-flex align-items-center">
+            <div className="sorting">
               <span className="sort">Sort by:</span>
               <select
                 className="form-select form-select-md sortby"

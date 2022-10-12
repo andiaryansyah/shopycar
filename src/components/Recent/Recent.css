@@ -25,6 +25,7 @@
 
 .recent .card {
     box-shadow: 0px 0px 50px rgba(12, 55, 94, 0.05);
+    width: 16rem;
 }
 
 .recent .card .recent-price {
@@ -76,4 +77,33 @@
     font-weight: 600;
     top: 30px;
     left: 61%;
+}
+
+@media screen and (max-width: 1024px){
+    .recent .card {
+        width: 14rem;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .recent .row {
+        display: flex;
+        justify-content: center;
+        row-gap: 20px;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .recent h2 {
+        margin-top: 4px;
+        font-size: 16px;
+    }
+    
+    .recent .text-link {
+        font-size: 16px;
+    }
+
+    .recent .row {
+        row-gap: 20px;
+    }
 }

@@ -31,7 +31,46 @@
 }
 
 @media screen and (max-width: 1024px) {
+    .about .about-content .card-title{
+        font-size: 30px;
+    }
+    
     .about .about-content .card-text {
         width: 400px;
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about .about-content .card-title{
+        margin-left: 0;
+        text-align: center;
+        font-size: 35px;
+    }
+
+    .about .about-content .card-text {
+        width: 100%;
+        font-size: 22px;
+    }
+    .about .about-content .about-link {
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .about .about-content .card-title{
+        text-align: center;
+        font-size: 25px;
+    }
+
+    .about .about-content .card-text {
+        width: 100%;
+        font-size: 15px;
+    }
+    .about .about-content .about-link {
+        font-size: 17px;
     }
 }

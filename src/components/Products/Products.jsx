@@ -4,7 +4,7 @@ import { CgShoppingCart } from "react-icons/cg";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getProducts,
-  setPageProduct,
+  // setPageProduct,
   setSearchProduct,
   addCart,
   getCartItems,
@@ -112,8 +112,8 @@ const Products = () => {
               />
             ) : (
               displayProducts.map((product) => (
-                <div className="col-md-3" key={product.id}>
-                  <div className="card border-0" style={{ width: "16rem" }}>
+                <div className="col-md-4 col-lg-3" key={product.id}>
+                  <div className="card border-0" >
                     {product.disc_price !== 0 ? (
                       <div className="disc-mark">
                         <p className="text-center text-wrap m-auto">

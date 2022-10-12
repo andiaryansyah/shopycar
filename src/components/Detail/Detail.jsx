@@ -123,7 +123,7 @@ const Detail = () => {
                 />
               </div>
               <h5 className="fw-bold mt-5">Deskripsi :</h5>
-              <p style={{ width: "450px" }}>{detailProduct.description}</p>
+              <p className="desc">{detailProduct.description}</p>
             </div>
             <div className="col-md-6">
               <h2 className="fw-bold">{detailProduct.name}</h2>

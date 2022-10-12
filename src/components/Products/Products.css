@@ -106,3 +106,18 @@
     color: grey;
     background-color: #b52d04;
   }
+
+  @media screen and (max-width: 1024px) {
+    .products .card-img-top {
+        height: 180px;
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    .products .card-img-top {
+        height: 200px;
+    }
+    .products .card .disc-mark {
+        left: 68%;
+    }
+  }

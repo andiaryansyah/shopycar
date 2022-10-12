@@ -15,3 +15,17 @@
     width: 271px;
     padding-left: 25px;
 }
+
+@media screen and (max-width: 576px) {
+    .brand {
+        margin-top: 56px;
+    }
+
+    .brand h1 {
+        font-size: 26px;
+    }
+
+    .brand .brand-row .img {
+        padding-left: 0;
+    }
+}

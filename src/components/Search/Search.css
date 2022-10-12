@@ -28,27 +28,17 @@
 .search .search-content .input-group .input-group-text {
     background: white;
     color: #F75623;
+    font-size: 25px;
 }
 
 .search .input-group .input-produk:focus {
     outline: none !important;
 }
 
-.search .btn-search {
-    border-radius: 5px;
-    border: 1px solid #F75623;
-    background: #F75623;
-    color:white;
-    width: 150px;
-    padding: 0.5rem;
-    margin-right: 4rem;
-    font-weight: bold;
-}
-
-.search .btn-search:hover {
-    background: #a12804;
-    border: 1px solid #a12804;
-    transition: 0.2s;
+.search .show-limit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .search span.show {
@@ -61,6 +51,12 @@
     padding-right: 0;
 }
 
+.search .sorting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .search span.sort {
     width: 110px;
 }
@@ -69,4 +65,84 @@
     margin-right: 20px;
     border: 0;
     padding-right: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .search h4 {
+        font-size: 20px;
+    }
+
+    .search .search-content .input-group .input-produk {
+        width: 300px;
+    }
+
+    .search .search-content .input-group .input-group-text {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .search h4 {
+        font-size: 18px;
+    }
+
+    .search .search-content .input-group {
+        width: 450px;
+        margin-right: 2rem;
+    }
+
+    .search .search-content .input-group .input-produk {
+        width: 200px;
+    }
+
+    .search .search-content .input-group .input-group-text {
+        font-size: 17px;
+    }
+
+    .search select.count {
+        margin-right: 8px;
+    }
+
+    .search span.sort {
+        width: 60px;
+    }
+
+    .search select.sortby {
+        width: 100px;
+        margin-right: 8px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .search h4 {
+        font-size: 16px;
+    }
+
+    .search .search-content {
+        display: grid;
+        padding-top: 1.5rem;
+    }
+
+    .search .search-content .input-group {
+        width: 300px;
+        margin-right: 0;
+    }
+
+    .search .show-limit {
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+
+    .search .sorting {
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+
+    .search span.show {
+        width: 70px;
+    }
+    
+    .search select.count {
+        width: 60px;
+    }
 }

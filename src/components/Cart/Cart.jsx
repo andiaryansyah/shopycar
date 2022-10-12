@@ -11,9 +11,11 @@ import "./Cart.css";
 const Cart = () => {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.products);
-  const [checkedState, setCheckedState] = useState(new Array(cartItems.length).fill(false));
+  let user_id = parseInt(localStorage.getItem("id"));
+  const [checkedState, setCheckedState] = useState(
+    new Array(cartItems.length).fill(false)
+  );
   const [total, setTotal] = useState(0);
-  let user_id = parseInt(localStorage.getItem('id'))
   let newQty;
 
   const toggleCartItemQuantity = async (
@@ -30,7 +32,9 @@ const Cart = () => {
     } else if (value === "dec") {
       newQty = qty - 1;
     }
-    await dispatch(getUpdateCart(id, user_id, product_id, newQty, price, disc_price));
+    await dispatch(
+      getUpdateCart(id, user_id, product_id, newQty, price, disc_price)
+    );
     dispatch(getCartItems(user_id));
   };
 
@@ -69,7 +73,6 @@ const Cart = () => {
     return result;
   };
 
-  
   const handleOnChange = (position) => {
     const updatedCheckedState = checkedState.map((item, index) =>
       index === position ? !item : item
@@ -80,7 +83,12 @@ const Cart = () => {
     const totalPrice = updatedCheckedState.reduce(
       (sum, currentState, index) => {
         if (currentState === true) {
-          return sum + ((cartItems[index].price - (cartItems[index].price * cartItems[index].disc_price)) * cartItems[index].qty);
+          return (
+            sum +
+            (cartItems[index].price -
+              cartItems[index].price * cartItems[index].disc_price) *
+              cartItems[index].qty
+          );
         }
         return sum;
       },
@@ -88,21 +96,23 @@ const Cart = () => {
     );
 
     setTotal(totalPrice);
+    console.log(updatedCheckedState, "UPDATECHECKEDDDDD");
+    console.log(checkedState, "CHECKEDDDD");
   };
 
   useEffect(() => {
-    dispatch(getCartItems(user_id))
+    dispatch(getCartItems(user_id));
     // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
-    handleOnChange()
+    handleOnChange();
     // eslint-disable-next-line
   }, [cartItems]);
 
   return (
     <div className="cart-styles">
-      <div className="bg-white mt-3 mb-2 py-1 px-4 justify-content-center align-items-center">
+      <div className="cart-promo">
         <p className="mt-2">
           Pilih voucher Gratis Ongkir untuk menikmati Gratis Ongkir
         </p>
@@ -123,10 +133,7 @@ const Cart = () => {
         <div className="row d-flex flex-column">
           {cartItems.map((item, index) => (
             <>
-              <li
-                className="col d-flex align-items-center pt-4"
-                key={index}
-              >
+              <div className="col product-column" key={index}>
                 <input
                   className="form-check-input"
                   type="checkbox"
@@ -137,13 +144,8 @@ const Cart = () => {
                   onChange={() => handleOnChange(index)}
                   aria-label="Checkbox for following text input"
                 />
-                <img
-                  src={item.product.image}
-                  alt="..."
-                  width="80px"
-                  height="80px"
-                  style={{ marginLeft: "10px" }}
-                />
+                <div className="resize">
+                <img src={item.product.image} alt="..." />
                 <p className="product-name">{item.product.name}</p>
                 <span className="product-disc">
                   {item.product.disc_price !== 0
@@ -153,10 +155,7 @@ const Cart = () => {
                 <p className="product-list">
                   {afterDiscount(item.product.price, item.product.disc_price)}
                 </p>
-                <div
-                  className="d-flex align-items-center mt-2"
-                  style={{ marginRight: "75px" }}
-                >
+                <div className="counter">
                   <button
                     onClick={() =>
                       toggleCartItemQuantity(
@@ -197,24 +196,28 @@ const Cart = () => {
                     +
                   </button>{" "}
                 </div>
-                <p className="product-list">
+                <p className="subtotal">
                   {formatIDR(subTotal(item.price, item.qty, item.disc_price))}
                 </p>
-                <Link className="remove" to="#" onClick={() => onRemove(item.id)}>
+                <Link
+                  className="remove"
+                  to="#"
+                  onClick={() => onRemove(item.id)}
+                >
                   Hapus
                 </Link>
-              </li>
+                </div>
+              </div>
               <div className="block"></div>
+              
             </>
           ))}
         </div>
       </div>
       <div className="checkout">
-        <div className=" d-flex justify-content-end align-items-center">
           <span>Total ({cartItems.length} Produk):</span>
           <span className="total-price">{formatIDR(total)}</span>
           <button>CHECKOUT</button>
-        </div>
       </div>
     </div>
   );

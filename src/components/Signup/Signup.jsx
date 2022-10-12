@@ -30,6 +30,7 @@ const Signup = () => {
   // };
   useEffect(() => {
 dispatch(getUsers())
+// eslint-disable-next-line
   },[])
 
 useEffect(() => {

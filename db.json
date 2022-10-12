@@ -209,7 +209,7 @@
     {
       "userId": 3,
       "productId": 3,
-      "qty": 5,
+      "qty": 7,
       "price": 250000,
       "disc_price": 0,
       "id": 3
@@ -223,17 +223,9 @@
       "id": 4
     },
     {
-      "userId": 4,
-      "productId": 2,
-      "qty": 1,
-      "price": 354000,
-      "disc_price": 0,
-      "id": 5
-    },
-    {
       "userId": 5,
       "productId": 2,
-      "qty": 3,
+      "qty": 2,
       "price": 354000,
       "disc_price": 0,
       "id": 7
@@ -249,7 +241,7 @@
     {
       "userId": 4,
       "productId": 1,
-      "qty": 1,
+      "qty": 6,
       "price": 197000,
       "disc_price": 0.15,
       "id": 9
@@ -257,7 +249,7 @@
     {
       "userId": 4,
       "productId": 3,
-      "qty": 6,
+      "qty": 4,
       "price": 250000,
       "disc_price": 0,
       "id": 10
@@ -265,10 +257,32 @@
     {
       "userId": 3,
       "productId": 6,
-      "qty": 1,
+      "qty": 6,
       "price": 1200000,
       "disc_price": 0,
       "id": 11
+    },
+    {
+      "userId": 3,
+      "productId": 4,
+      "qty": 2,
+      "price": 275000,
+      "disc_price": 0,
+      "id": 12
+    },
+    {
+      "userId": 5,
+      "productId": 1,
+      "qty": 4,
+      "price": 197000,
+      "disc_price": 0.15,
+      "id": 13
+    }
+  ],
+  "payment": [
+    {
+      "amount": 1000,
+      "id": "pm_1LqcMUHRPDB0D850ykvwZAce"
     }
   ]
 }

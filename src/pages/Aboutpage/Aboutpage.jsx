@@ -7,7 +7,7 @@ const Aboutpage = () => {
     <div className="container about-wrapper">
       <div className="row d-flex justify-content-center">
         <div className="col-lg-6 mt-4">
-          <h5>About Us</h5>
+          <h5>Tentang Kami</h5>
           <h1 className="fw-bold">Shopycar</h1>
           <div className="d-flex mb-4">
             <div className="line-style"></div>
